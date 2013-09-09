@@ -234,12 +234,22 @@ QMultiMap<QString, QString> Xml::getCategorie(int categ){
 }
 
 void Xml::openBase(){
-    QString nomFichier = QFileDialog::getExistingDirectory(0, "Répertoire de la base", QDir::homePath());
+    QString nomFichier = QFileDialog::getOpenFileName(0, "Répertoire de la base", QDir::homePath(), "Fichiers XML (*.xml)");
     if(!nomFichier.endsWith(".xml")){
         return;
     }
     SettingsManager manager;
     manager.setSettings(Base, nomFichier);
-    QMessageBox::information(0, "Base chargée", "La base de question a bien été chargée mais elle ne sera disponible qu'après un redémarrage d'Interrogator");
+    QMessageBox alerte;
+    alerte.setText("La base de question a bien été chargée mais elle ne sera disponible qu'après un redémarrage d'Interrogator");
+    alerte.setWindowTitle("Base chargée");
+    alerte.setIcon(QMessageBox::Information);
+    alerte.setWindowIcon(QIcon(":/icones/images/interrogator.png"));
+    alerte.addButton("Redémarrer", QMessageBox::AcceptRole);
+    alerte.addButton("On verra plus tard...", QMessageBox::RejectRole);
+    int reponse = alerte.exec();
+    if(reponse == QMessageBox::AcceptRole){
+        emit goRestart();
+    }
     return;
 }

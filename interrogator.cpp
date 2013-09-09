@@ -43,6 +43,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     connect(ui->action_propos_d_Interrogator, SIGNAL(triggered()), this, SLOT(about()));
     connect(ui->actionSauvegarder_les_donn_es, SIGNAL(triggered()), insXml, SLOT(exportData()));
     connect(ui->actionOuvrir_une_base, SIGNAL(triggered()), insXml, SLOT(openBase()));
+    connect(insXml, SIGNAL(goRestart()), this, SLOT(restart()));
 
     //----------------------------------------------
     //1 - Liste des catégories
@@ -467,4 +468,9 @@ void Interrogator::about(){
     QString string_about = ("<h2>À propos d'Interrogator</h2><br><b>Dévoloppé par</b> : David Lumaye<br><b>Version</b> : 0.0.1<br><b>Courriel</b>:<a href='mailto:littletiger58.aro-base.gmail.com'>littletiger58.aro-base.gmail.com</a><br><b>Distribué sous license</b> : <a href='http://www.gnu.org/licenses/gpl-3.0.fr.html'>GPL 3</a>");
     QMessageBox::about(this, tr("À propos d'Interrogator"), string_about);
     return;
+}
+
+void Interrogator::restart(){
+    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+    qApp->quit();
 }

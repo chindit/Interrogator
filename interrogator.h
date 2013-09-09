@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QProcess>
 #include <QSignalMapper>
 #include <time.h>
 
@@ -38,6 +39,7 @@ private slots:
     void setQuestion(int question, int categorie);
     void preparePDF();
     void about();
+    void restart();
 
 private:
     void setListCateg();

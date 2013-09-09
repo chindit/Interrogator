@@ -3,10 +3,12 @@
 
 #include <QFile>
 #include <QFileDialog>
+#include <QIcon>
+#include <QMessageBox>
 #include <QMultiMap>
+#include <QObject>
 #include <QTextStream>
 #include <QtXml/QDomDocument>
-#include <QObject>
 
 #include "settingsmanager.h"
 
@@ -31,6 +33,9 @@ signals:
 public slots:
     void exportData();
     void openBase();
+
+signals:
+    void goRestart();
 
 private:
     void readData();
