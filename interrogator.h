@@ -51,6 +51,7 @@ private:
     toolsDialog *insDialog;
     bool edit;
     int idEdit;
+    int idEditCateg;
 };
 
 #endif // INTERROGATOR_H

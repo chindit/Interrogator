@@ -16,6 +16,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     insXml = new Xml;
     edit = false;
     idEdit = 0;
+    idEditCateg = 0;
     QSignalMapper *mappeur[5];
     for(int i=0; i<5; i++)
         mappeur[i] = new QSignalMapper;
@@ -294,6 +295,7 @@ void Interrogator::setQuestion(int question, int categorie){
     }
     edit = true;
     idEdit = question;
+    idEditCateg = categorie;
     ui->pushButton_add_question->setText("Éditer");
     ui->pushButton_add_question->setIcon(QIcon(":/icones/images/edit.png"));
     return;
@@ -333,8 +335,13 @@ void Interrogator::saveQuestion(){
     int idNew = (idEdit > 0) ? idEdit : insXml->getLastId();
     if(edit && idEdit > 0){
         edit = false;
-        insXml->deleteData(false, insXml->getCategId(ui->label_actual_category->text()), idEdit);
+        if(idEditCateg != insXml->getCategId(ui->label_actual_category->text())){
+            //Il y a eu un changement de categorie
+            idNew = insXml->getLastId(insXml->getCategId(ui->label_actual_category->text()));
+        }
+        insXml->deleteData(false, idEditCateg, idEdit);
         idEdit = 0;
+        idEditCateg = 0;
         ui->pushButton_add_question->setIcon(QIcon(":/icons/images/add.png"));
         ui->pushButton_add_question->setText("Ajouter");
     }
