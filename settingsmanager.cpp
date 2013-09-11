@@ -3,10 +3,12 @@
 SettingsManager::SettingsManager(QObject *parent) :
     QObject(parent)
 {
-    names = new QString[1];
-    settings = new QVariant[1];
+    names = new QString[3];
+    settings = new QVariant[3];
 
     names[Base] = "FichierBase";
+    names[EmptyAnswers] = "ReponsesVides";
+    names[FullSecurity] = "SauvegardeAutomatique";
 
     loadSettings();
 
@@ -31,6 +33,8 @@ void SettingsManager::setSettings(Setting s, QVariant v){
 void SettingsManager::loadSettings(){
     QSettings options("Interrogator", "interrogator");
     settings[Base] = options.value(names[Base], "");
+    settings[EmptyAnswers] = options.value(names[EmptyAnswers], false);
+    settings[FullSecurity] = options.value(names[FullSecurity], false);
     return;
 }
 

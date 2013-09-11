@@ -1560,7 +1560,15 @@ margin-left:-60px;</string>
     <addaction name="action_propos_d_Interrogator"/>
     <addaction name="action_propos_de_Qt"/>
    </widget>
+   <widget class="QMenu" name="menuOutils">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionEmptyAnswers"/>
+    <addaction name="actionFullSecurity"/>
+   </widget>
    <addaction name="menuFichier"/>
+   <addaction name="menuOutils"/>
    <addaction name="menuAide"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -1616,6 +1624,25 @@ margin-left:-60px;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionEmptyAnswers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Autoriser les réponses vides</string>
+   </property>
+  </action>
+  <action name="actionFullSecurity">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Activer le mode de sécurité maximale</string>
+   </property>
+   <property name="whatsThis">
+    <string>Sauvegarde automatiquement la base pour éviter des pertes de données</string>
    </property>
   </action>
  </widget>

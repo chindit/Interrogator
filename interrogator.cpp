@@ -39,12 +39,28 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     //----------------------------------------------
     //0 - Menu
     //----------------------------------------------
+    ui->actionEmptyAnswers->setChecked(insManager->getSettings(EmptyAnswers).toBool());
+    ui->actionFullSecurity->setChecked(insManager->getSettings(FullSecurity).toBool());
     connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(ui->action_propos_de_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(ui->action_propos_d_Interrogator, SIGNAL(triggered()), this, SLOT(about()));
     connect(ui->actionSauvegarder_les_donn_es, SIGNAL(triggered()), insXml, SLOT(exportData()));
     connect(ui->actionOuvrir_une_base, SIGNAL(triggered()), insXml, SLOT(openBase()));
     connect(insXml, SIGNAL(goRestart()), this, SLOT(restart()));
+    connect(ui->actionEmptyAnswers, SIGNAL(triggered()), this, SLOT(changeStatusAnswer()));
+    QString dossier = QDir::homePath();
+#ifdef Q_OS_WIN
+    dossier += "/AppData/Local/Interrogator";
+#elif defined(Q_WS_MAC)
+    dossier += "/Library/Application Support/Interrogator";
+#else
+    dossier += "/.Interrogator";
+#endif
+    QDir dir_dossier(dossier);
+    if(!dir_dossier.exists()){
+        dir_dossier.mkdir(dossier);
+    }
+    connect(ui->actionFullSecurity, SIGNAL(triggered()), this, SLOT(setFullSecurity()));
 
     //----------------------------------------------
     //1 - Liste des catégories
@@ -326,7 +342,7 @@ void Interrogator::saveQuestion(){
             vide = true;
     }
     else
-        if(ui->textEdit_reponse->toPlainText().isEmpty())
+        if(ui->textEdit_reponse->toPlainText().isEmpty() && !insManager->getSettings(EmptyAnswers).toBool())
             vide = true;
     if(vide){
         QMessageBox::warning(this, "Champ vide", "Pour continuer, tous les champs doivent être remplis.");
@@ -480,4 +496,14 @@ void Interrogator::about(){
 void Interrogator::restart(){
     QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
     qApp->quit();
+}
+
+void Interrogator::changeStatusAnswer(){
+    insManager->setSettings(EmptyAnswers, ui->actionEmptyAnswers->isChecked());
+    return;
+}
+
+void Interrogator::setFullSecurity(){
+    insManager->setSettings(FullSecurity, ui->actionFullSecurity->isChecked());
+    return;
 }

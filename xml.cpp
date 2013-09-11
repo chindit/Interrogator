@@ -16,6 +16,8 @@ Xml::~Xml(){
 
 void Xml::saveData(QString nom){
     if((updated || !nom.isEmpty()) && !manager->getSettings(Base).toString().isEmpty()){
+        if(manager->getSettings(FullSecurity).toBool())
+            this->securitySave();
         QDomDocument doc;
         QDomElement livres = doc.createElement("interrogator");
         doc.appendChild(livres);
@@ -251,5 +253,30 @@ void Xml::openBase(){
     if(reponse == QMessageBox::AcceptRole){
         emit goRestart();
     }
+    return;
+}
+
+void Xml::securitySave(){
+    QString dossier = QDir::homePath();
+#ifdef Q_OS_WIN
+    dossier += "/AppData/Local/Interrogator";
+#elif defined(Q_WS_MAC)
+    dossier += "/Library/Application Support/Interrogator";
+#else
+    dossier += "/.Interrogator";
+#endif
+    QDir dirSave = QDir(dossier);
+    QStringList fichiers = dirSave.entryList();
+    fichiers.removeFirst();
+    fichiers.removeFirst();
+    QDateTime currentDate = QDateTime::currentDateTime();
+    if(fichiers.size() >= 10){
+        QFile fichier(dossier+"/"+fichiers.at(0));
+        if(!fichier.remove())
+            qDebug() << fichier.errorString();
+    }
+    QString nom = "autosave_"+currentDate.toString("ddMM_hhmmss")+".xml";
+    QFile actualBase(manager->getSettings(Base).toString());
+    actualBase.copy(dossier+"/"+nom);
     return;
 }

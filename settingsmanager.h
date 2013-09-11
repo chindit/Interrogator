@@ -1,7 +1,7 @@
 #ifndef SETTINGSMANAGER_H
 #define SETTINGSMANAGER_H
 
-enum Setting { Base };
+enum Setting { Base, EmptyAnswers, FullSecurity };
 
 #include <QObject>
 #include <QMessageBox>

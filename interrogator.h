@@ -40,6 +40,8 @@ private slots:
     void preparePDF();
     void about();
     void restart();
+    void changeStatusAnswer();
+    void setFullSecurity();
 
 private:
     void setListCateg();

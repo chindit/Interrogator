@@ -1,6 +1,7 @@
 #ifndef XML_H
 #define XML_H
-
+#include <QDebug>
+#include <QDateTime>
 #include <QFile>
 #include <QFileDialog>
 #include <QIcon>
@@ -40,6 +41,7 @@ signals:
 private:
     void readData();
     void saveData(QString nom = "");
+    void securitySave();
 
     QList< QMultiMap<QString,QString> > donnees;
     bool updated;
