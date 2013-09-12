@@ -48,14 +48,9 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     connect(ui->actionOuvrir_une_base, SIGNAL(triggered()), insXml, SLOT(openBase()));
     connect(insXml, SIGNAL(goRestart()), this, SLOT(restart()));
     connect(ui->actionEmptyAnswers, SIGNAL(triggered()), this, SLOT(changeStatusAnswer()));
-    QString dossier = QDir::homePath();
-#ifdef Q_OS_WIN
-    dossier += "/AppData/Local/Interrogator";
-#elif defined(Q_WS_MAC)
-    dossier += "/Library/Application Support/Interrogator";
-#else
-    dossier += "/.Interrogator";
-#endif
+
+    QStringList dossiers = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+    QString dossier = dossiers.first();
     QDir dir_dossier(dossier);
     if(!dir_dossier.exists()){
         dir_dossier.mkdir(dossier);
@@ -71,10 +66,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     //----------------------------------------------
     //2 - Ajouter une catégorie
     //----------------------------------------------
-    QSignalMapper *mappeur3 = new QSignalMapper;
-    connect(ui->pushButton_cancel_2, SIGNAL(clicked()), mappeur3, SLOT(map()));
-    mappeur3->setMapping(ui->pushButton_cancel_2, "0");
-    connect(mappeur3, SIGNAL(mapped(QString)), this, SLOT(changeStacked(QString)));
+    connect(ui->pushButton_cancel_2, SIGNAL(clicked()), this, SLOT(undoCateg()));
 
     //----------------------------------------------
     //3 - Gérer les questions
@@ -416,6 +408,19 @@ void Interrogator::undoQuestion(){
         }
         ui->pushButton_add_question->setIcon(QIcon(":/icons/images/add.png"));
         ui->pushButton_add_question->setText("Ajouter");
+    }
+    ui->stackedWidget->setCurrentIndex(0);
+    return;
+}
+
+void Interrogator::undoCateg(){
+    if(edit){
+        ui->lineEdit_nom->clear();
+        ui->plainTextEdit_description->clear();
+        edit = false;
+        idEdit = 0;
+        ui->pushButton->setIcon(QIcon(":/icons/images/add.png"));
+        ui->pushButton->setText("Ajouter");
     }
     ui->stackedWidget->setCurrentIndex(0);
     return;

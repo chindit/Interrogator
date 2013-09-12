@@ -49,7 +49,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="index">
        <widget class="QWidget" name="horizontalLayoutWidget">
@@ -1020,7 +1020,11 @@ réponse</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="spinBox_ponctuation_qcm"/>
+                 <widget class="QSpinBox" name="spinBox_ponctuation_qcm">
+                  <property name="value">
+                   <number>1</number>
+                  </property>
+                 </widget>
                 </item>
                 <item>
                  <spacer name="verticalSpacer_2">
@@ -1689,8 +1693,8 @@ margin-left:-60px;</string>
    <slot>changeStacked(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>59</y>
+     <x>181</x>
+     <y>55</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -1769,8 +1773,8 @@ margin-left:-60px;</string>
    <slot>saveCateg()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>59</y>
+     <x>627</x>
+     <y>442</y>
     </hint>
     <hint type="destinationlabel">
      <x>634</x>
@@ -1785,8 +1789,8 @@ margin-left:-60px;</string>
    <slot>updateList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>59</y>
+     <x>158</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel">
      <x>635</x>
@@ -1801,8 +1805,8 @@ margin-left:-60px;</string>
    <slot>categoryActivated(int,int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>117</x>
-     <y>154</y>
+     <x>107</x>
+     <y>61</y>
     </hint>
     <hint type="destinationlabel">
      <x>323</x>
@@ -1817,8 +1821,8 @@ margin-left:-60px;</string>
    <slot>categoryActivatedQuestion(int,int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>59</y>
+     <x>118</x>
+     <y>197</y>
     </hint>
     <hint type="destinationlabel">
      <x>634</x>

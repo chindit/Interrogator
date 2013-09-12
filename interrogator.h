@@ -44,6 +44,7 @@ private slots:
     void changeStatusAnswer();
     void setFullSecurity();
     void undoQuestion();
+    void undoCateg();
 
 private:
     void setListCateg();
