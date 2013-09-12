@@ -93,10 +93,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     for(int i=0; i<categories.size(); i++)
         ui->comboBox_categories->addItem(categories.at(i).value("intitule"));
     this->setQCMStatus();
-    QSignalMapper *mappeur5 = new QSignalMapper;
-    connect(ui->pushButton_cancel, SIGNAL(clicked()), mappeur5, SLOT(map()));
-    mappeur5->setMapping(ui->pushButton_cancel, "0");
-    connect(mappeur5, SIGNAL(mapped(QString)), this, SLOT(changeStacked(QString)));
+    connect(ui->pushButton_cancel, SIGNAL(clicked()), this, SLOT(undoQuestion()));
     //----------------------------------------------
     //5 - Générer un PDF
     //----------------------------------------------
@@ -400,6 +397,30 @@ void Interrogator::saveQuestion(){
     return;
 }
 
+void Interrogator::undoQuestion(){
+    if(idEdit > 0){
+        idEdit = 0;
+        idEditCateg = 0;
+        edit = false;
+        ui->label_actual_category->setText("");
+        ui->plainTextEdit_intitule->clear();
+        if(ui->checkBox_qcm->isChecked()){
+            ui->checkBox_qcm->setChecked(false);
+            ui->listWidget_qcm->clear();
+            ui->spinBox_ponctuation_qcm->setValue(1);
+        }
+        else{
+            ui->plainTextEdit_description->clear();
+            ui->spinBox_lignes_reponse->setValue(0);
+            ui->spinBox_ponctuation->setValue(0);
+        }
+        ui->pushButton_add_question->setIcon(QIcon(":/icons/images/add.png"));
+        ui->pushButton_add_question->setText("Ajouter");
+    }
+    ui->stackedWidget->setCurrentIndex(0);
+    return;
+}
+
 void Interrogator::preparePDF(){
     if(ui->comboBox_categories_2->currentText().isEmpty()){
         QMessageBox::warning(this, "Impossible de générer le PDF", "Il est impossible de générer un PDF sans sélectionner une catégorie de questions.");
@@ -412,9 +433,10 @@ void Interrogator::preparePDF(){
     if(ui->radioButton_pdf_qcm->isChecked() || ui->radioButton_pdf_texte->isChecked()){
         QList<QMultiMap<QString,QString> > qqcm;
         QList<QMultiMap<QString,QString> > qtxt;
-        for(int i=0; i<nbQuestions; i++){
-            if(questions.at(i).value("qcm") == "true")
+        for(int i=0; i<questions.size(); i++){
+            if(questions.at(i).value("qcm") == "true"){
                 qqcm.append(questions.at(i));
+            }
             else
                 qtxt.append(questions.at(i));
         }

@@ -97,7 +97,7 @@ void Pdf::generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QStri
     for(int i=0; i<questions.size(); i++){
         QString pregunta = QString::number(i+1)+") "+questions.at(i).value("intitule");
         placeTitre = metrics2.boundingRect(pregunta);
-        float hauteurBloc = ceil((float)placeTitre.width()/(float)totalWidth); //ceil() sert à arrondir à l'unité supérieure
+        hauteurBloc = ceil((float)placeTitre.width()/(float)totalWidth); //ceil() sert à arrondir à l'unité supérieure
         //Changement de page
         if(currentHeight+(hauteurBloc*lineHeight) > totalHeight){
             //On indique le numéro de page
@@ -109,13 +109,14 @@ void Pdf::generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QStri
             currentHeight = 0;
         }
 
+        nbReturn = pregunta.count("\n");
         //Intitulé de la question
-        page.drawText(0, currentHeight, totalWidth, ((int)hauteurBloc*lineHeight), Qt::AlignJustify|Qt::TextDontClip|Qt::TextWordWrap, pregunta);
+        page.drawText(0, currentHeight, totalWidth, (((int)hauteurBloc+nbReturn)*lineHeight), Qt::AlignJustify|Qt::TextDontClip|Qt::TextWordWrap, pregunta);
         if(notes){
             //On affiche les notes
             page.drawText(totalWidth+15, currentHeight, "/"+questions.at(i).value("ponctuation"));
         }
-        currentHeight += ((int)hauteurBloc+1)*lineHeight;
+        currentHeight += ((int)hauteurBloc+nbReturn+1)*lineHeight;
 
         //Réponse normale
         if(questions.at(i).value("qcm") == "false" && questions.at(i).value("lignes", "5").toInt() != 0 && !prof && lignes){
@@ -206,14 +207,17 @@ void Pdf::generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QStri
         if(questions.at(i).value("qcm") == "true"){
             QChar carre(0x25A2); //Carré vide à bords arrondis
             QChar carre2(0x25A3); //Carré rempli
-            QMultiMap<QString, QString>::iterator it;
             QMultiMap<QString, QString> mapQuestion = questions.at(i);
+            QMapIterator<QString, QString> it(mapQuestion);
             QList < int > reponsesCorrectes;
-            for(it = mapQuestion.begin(); it != mapQuestion.end(); ++it){
+            while(it.hasNext()){
+                it.next();
                 if(it.key() == "valide")
                     reponsesCorrectes.append(QString(it.value()).toInt());
             }
-            for(it = mapQuestion.begin(); it != mapQuestion.end(); ++it){
+            it.toFront();
+            while(it.hasNext()){
+                it.next();
                 bool convert = false;
                 int id = 0;
                 id = QString(it.key()).toInt(&convert);

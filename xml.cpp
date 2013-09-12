@@ -257,14 +257,8 @@ void Xml::openBase(){
 }
 
 void Xml::securitySave(){
-    QString dossier = QDir::homePath();
-#ifdef Q_OS_WIN
-    dossier += "/AppData/Local/Interrogator";
-#elif defined(Q_WS_MAC)
-    dossier += "/Library/Application Support/Interrogator";
-#else
-    dossier += "/.Interrogator";
-#endif
+    QStringList dossiers = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+    QString dossier = dossiers.first();
     QDir dirSave = QDir(dossier);
     QStringList fichiers = dirSave.entryList();
     fichiers.removeFirst();

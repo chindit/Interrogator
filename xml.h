@@ -1,13 +1,15 @@
 #ifndef XML_H
 #define XML_H
-#include <QDebug>
+
 #include <QDateTime>
+#include <QDebug>
 #include <QFile>
 #include <QFileDialog>
 #include <QIcon>
 #include <QMessageBox>
 #include <QMultiMap>
 #include <QObject>
+#include <QStandardPaths>
 #include <QTextStream>
 #include <QtXml/QDomDocument>
 

@@ -49,7 +49,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>5</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="index">
        <widget class="QWidget" name="horizontalLayoutWidget">
@@ -1801,8 +1801,8 @@ margin-left:-60px;</string>
    <slot>categoryActivated(int,int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>107</x>
-     <y>57</y>
+     <x>117</x>
+     <y>154</y>
     </hint>
     <hint type="destinationlabel">
      <x>323</x>
@@ -1897,8 +1897,8 @@ margin-left:-60px;</string>
    <slot>preparePDF()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>59</y>
+     <x>366</x>
+     <y>432</y>
     </hint>
     <hint type="destinationlabel">
      <x>7</x>
@@ -1913,12 +1913,12 @@ margin-left:-60px;</string>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>87</x>
-     <y>79</y>
+     <x>99</x>
+     <y>264</y>
     </hint>
     <hint type="destinationlabel">
-     <x>102</x>
-     <y>79</y>
+     <x>114</x>
+     <y>291</y>
     </hint>
    </hints>
   </connection>
@@ -1929,12 +1929,12 @@ margin-left:-60px;</string>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>79</y>
+     <x>341</x>
+     <y>238</y>
     </hint>
     <hint type="destinationlabel">
-     <x>108</x>
-     <y>79</y>
+     <x>341</x>
+     <y>267</y>
     </hint>
    </hints>
   </connection>

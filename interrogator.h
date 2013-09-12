@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QSignalMapper>
+#include <QVector>
 #include <time.h>
 
 #include "pdf.h"
@@ -42,6 +43,7 @@ private slots:
     void restart();
     void changeStatusAnswer();
     void setFullSecurity();
+    void undoQuestion();
 
 private:
     void setListCateg();

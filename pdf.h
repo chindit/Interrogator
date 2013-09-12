@@ -17,7 +17,7 @@ class Pdf : public QObject
     Q_OBJECT
 public:
     explicit Pdf(QObject *parent = 0);
-    void generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QString,QString> infos, bool prof);
+    void generate(QList<QMultiMap<QString, QString> > questions, QMultiMap<QString,QString> infos, bool prof);
 
 signals:
 
