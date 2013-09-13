@@ -41,6 +41,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     //----------------------------------------------
     ui->actionEmptyAnswers->setChecked(insManager->getSettings(EmptyAnswers).toBool());
     ui->actionFullSecurity->setChecked(insManager->getSettings(FullSecurity).toBool());
+    ui->actionEmptyQuestions->setChecked(insManager->getSettings(EmptyQCMQuestion).toBool());
     connect(ui->actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(ui->action_propos_de_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(ui->action_propos_d_Interrogator, SIGNAL(triggered()), this, SLOT(about()));
@@ -48,6 +49,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     connect(ui->actionOuvrir_une_base, SIGNAL(triggered()), insXml, SLOT(openBase()));
     connect(insXml, SIGNAL(goRestart()), this, SLOT(restart()));
     connect(ui->actionEmptyAnswers, SIGNAL(triggered()), this, SLOT(changeStatusAnswer()));
+    connect(ui->actionEmptyQuestions, SIGNAL(triggered()), this, SLOT(changeStatusQuestion()));
 
     QStringList dossiers = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
     QString dossier = dossiers.first();
@@ -324,7 +326,7 @@ void Interrogator::addQCMAnswer(){
 
 void Interrogator::saveQuestion(){
     bool vide = false;
-    if(ui->plainTextEdit_intitule->toPlainText().isEmpty() || ui->label_actual_category->text().isEmpty())
+    if((ui->plainTextEdit_intitule->toPlainText().isEmpty() && !ui->checkBox_qcm->isChecked()) || (ui->plainTextEdit_intitule->toPlainText().isEmpty() && ui->checkBox_qcm->isChecked() && !insManager->getSettings(EmptyQCMQuestion).toBool()) || ui->label_actual_category->text().isEmpty())
         vide = true;
     if(ui->checkBox_qcm->isChecked()){
         if(ui->listWidget_qcm->count() == 0)
@@ -527,6 +529,11 @@ void Interrogator::restart(){
 
 void Interrogator::changeStatusAnswer(){
     insManager->setSettings(EmptyAnswers, ui->actionEmptyAnswers->isChecked());
+    return;
+}
+
+void Interrogator::changeStatusQuestion(){
+    insManager->setSettings(EmptyQCMQuestion, ui->actionEmptyQuestions->isChecked());
     return;
 }
 

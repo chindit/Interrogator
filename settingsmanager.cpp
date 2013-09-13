@@ -3,12 +3,13 @@
 SettingsManager::SettingsManager(QObject *parent) :
     QObject(parent)
 {
-    names = new QString[3];
-    settings = new QVariant[3];
+    names = new QString[4];
+    settings = new QVariant[4];
 
     names[Base] = "FichierBase";
     names[EmptyAnswers] = "ReponsesVides";
     names[FullSecurity] = "SauvegardeAutomatique";
+    names[EmptyQCMQuestion] = "QuestionQCMVide";
 
     loadSettings();
 
@@ -35,6 +36,7 @@ void SettingsManager::loadSettings(){
     settings[Base] = options.value(names[Base], "");
     settings[EmptyAnswers] = options.value(names[EmptyAnswers], false);
     settings[FullSecurity] = options.value(names[FullSecurity], false);
+    settings[EmptyQCMQuestion] = options.value(names[EmptyQCMQuestion], false);
     return;
 }
 

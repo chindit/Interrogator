@@ -1570,6 +1570,7 @@ margin-left:-60px;</string>
     </property>
     <addaction name="actionEmptyAnswers"/>
     <addaction name="actionFullSecurity"/>
+    <addaction name="actionEmptyQuestions"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuOutils"/>
@@ -1647,6 +1648,14 @@ margin-left:-60px;</string>
    </property>
    <property name="whatsThis">
     <string>Sauvegarde automatiquement la base pour éviter des pertes de données</string>
+   </property>
+  </action>
+  <action name="actionEmptyQuestions">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Autoriser les questions vides (QCM)</string>
    </property>
   </action>
  </widget>
