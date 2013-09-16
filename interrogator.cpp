@@ -138,6 +138,9 @@ void Interrogator::setListCateg(){
 
 void Interrogator::updateListCateg(){
     QList<QMultiMap<QString, QString> > categories = insXml->getCategories();
+    ui->comboBox_categorie->clear();
+    ui->comboBox_categories->clear();
+    ui->comboBox_categories_2->clear();
     ui->tableWidget_categories->clear();
     ui->tableWidget_categories->setRowCount(0);
     this->setListCateg();
