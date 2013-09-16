@@ -172,8 +172,8 @@ void Interrogator::saveCateg(){
     QMultiMap<QString, QString> categorie;
     categorie.insert("type", "categorie");
     categorie.insert("id", QString::number(idNew));
-    categorie.insert("intitule", ui->lineEdit_nom->text());
-    categorie.insert("description", ui->plainTextEdit_description->toPlainText());
+    categorie.insert("intitule", ui->lineEdit_nom->text().trimmed());
+    categorie.insert("description", ui->plainTextEdit_description->toPlainText().trimmed());
     insXml->setData(categorie);
     QMessageBox::information(this, "Catégorie sauvegardée", "La catégorie a été correctement créée");
     ui->stackedWidget->setCurrentIndex(0);
@@ -357,10 +357,10 @@ void Interrogator::saveQuestion(){
     QMultiMap<QString, QString> question;
     question.insert("type", "question");
     question.insert("id", QString::number(idNew));
-    question.insert("intitule", ui->plainTextEdit_intitule->toPlainText());
-    question.insert("categorie", QString::number(insXml->getCategId(ui->label_actual_category->text())));
+    question.insert("intitule", ui->plainTextEdit_intitule->toPlainText().trimmed());
+    question.insert("categorie", QString::number(insXml->getCategId(ui->label_actual_category->text().trimmed())));
     if(!ui->checkBox_qcm->isChecked()){
-        question.insert("reponse", ui->textEdit_reponse->toPlainText());
+        question.insert("reponse", ui->textEdit_reponse->toPlainText().trimmed());
         question.insert("qcm", "false");
         question.insert("ponctuation", QString::number(ui->spinBox_ponctuation->value()));
         question.insert("lignes", QString::number(ui->spinBox_lignes_reponse->value()));
@@ -370,7 +370,7 @@ void Interrogator::saveQuestion(){
         question.insert("ponctuation", QString::number(ui->spinBox_ponctuation_qcm->value()));
         for(int i=0; i<ui->listWidget_qcm->count(); i++){
             if(!ui->listWidget_qcm->item(i)->text().isEmpty()){
-                question.insert(QString::number(i+1), ui->listWidget_qcm->item(i)->text());
+                question.insert(QString::number(i+1), ui->listWidget_qcm->item(i)->text().trimmed());
                 if(ui->listWidget_qcm->item(i)->checkState() == Qt::Checked)
                     question.insert("valide", QString::number(i+1));
             }
