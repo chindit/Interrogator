@@ -175,6 +175,11 @@ void Interrogator::saveCateg(){
     categorie.insert("intitule", ui->lineEdit_nom->text().trimmed());
     categorie.insert("description", ui->plainTextEdit_description->toPlainText().trimmed());
     insXml->setData(categorie);
+
+    //On nettoye les champs
+    ui->lineEdit_nom->clear();
+    ui->plainTextEdit_description->clear();
+
     QMessageBox::information(this, "Catégorie sauvegardée", "La catégorie a été correctement créée");
     ui->stackedWidget->setCurrentIndex(0);
     this->updateListCateg();
@@ -223,6 +228,7 @@ void Interrogator::categoryActivated(int row, int col){
         int reponse = QMessageBox::question(this, "Supprimer la catégorie", "Êtes-vous certain(e) de vouloir supprimer cette catégorie?\nToutes les questions en faisant partie seront également supprimées", QMessageBox::Yes | QMessageBox::No);
         if(reponse == QMessageBox::Yes){
             insXml->deleteData(true, categorie);
+            this->updateListCateg();
         }
         else{
             return;
