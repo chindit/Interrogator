@@ -9,6 +9,7 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrinter>
 #include <math.h>
+#include <numeric>
 
 #include "xml.h"
 

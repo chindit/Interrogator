@@ -522,6 +522,9 @@ void Interrogator::preparePDF(){
         infos.replace("print", nv_nom);
         myPdf.generate(questions, infos, true);
     }
+
+    //Message de fin
+    QMessageBox::information(this, "Questionnaire généré", "Le questionnaire a été généré et se trouve dans ici:"+nomFichier);
     return;
 }
 

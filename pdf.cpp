@@ -4,6 +4,7 @@ Pdf::Pdf(QObject *parent) : QObject(parent){
 }
 
 void Pdf::generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QString,QString> infos, bool prof){
+    srand(unsigned(time(NULL)));
     QPrinter printer;
     QPrintDialog *dlg;
     if(infos.value("print") != "PRINT!"){
@@ -210,25 +211,39 @@ void Pdf::generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QStri
             QMultiMap<QString, QString> mapQuestion = questions.at(i);
             QMapIterator<QString, QString> it(mapQuestion);
             QList < int > reponsesCorrectes;
+            int nbReponses = 0;
             while(it.hasNext()){
                 it.next();
                 if(it.key() == "valide")
                     reponsesCorrectes.append(QString(it.value()).toInt());
-            }
-            it.toFront();
-            while(it.hasNext()){
-                it.next();
                 bool convert = false;
-                int id = 0;
-                id = QString(it.key()).toInt(&convert);
-                if(convert){
-                    convert = false;
+                QString(it.key()).toInt(&convert);
+                if(convert)
+                    nbReponses++;
+            }
+
+            QList<int> tires;
+            std::list<int> myListShuffled;
+            for(int i=0; i<nbReponses; ++i){
+                bool isOk = false;
+                while(!isOk){
+                    int resultat = rand() % nbReponses + 1;
+                    if(!tires.contains(resultat)){
+                        tires.append(resultat);
+                        isOk = true;
+                        myListShuffled.push_back(resultat);
+                    }
+                }
+            }
+            std::list<int>::const_iterator iterator;
+            for (iterator = myListShuffled.begin(); iterator != myListShuffled.end(); ++iterator){
+                int id=*iterator;
                     QString texte;
                     if(prof && reponsesCorrectes.contains(id))
                         texte = QString(carre2);
                     else
                         texte = QString(carre);
-                    texte += " "+it.value();
+                    texte += " "+mapQuestion.value(QString::number(id));
                     float hauteurBloc = ceil((float)metricsItalic.boundingRect(texte).width()/(float)totalWidth);
                     //Changement de page
                     if(currentHeight+(hauteurBloc*lineHeight) > totalHeight){
@@ -242,7 +257,7 @@ void Pdf::generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QStri
                     }
                     page.drawText(0, currentHeight, (totalWidth), ((int)hauteurBloc*lineHeight), Qt::AlignJustify|Qt::TextDontClip|Qt::TextWordWrap, texte);
                     currentHeight += (int)hauteurBloc*lineHeight;
-                }
+                //}
             }
         }
         currentHeight += 2*lineHeight; //Double espace pour bien marquer la séparation entre question et réponse.
