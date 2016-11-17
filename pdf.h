@@ -10,6 +10,7 @@
 #include <QtPrintSupport/QPrinter>
 #include <math.h>
 #include <numeric>
+#include <time.h>
 
 #include "xml.h"
 
