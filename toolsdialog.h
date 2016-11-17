@@ -10,13 +10,13 @@ namespace Ui {
 class toolsDialog;
 }
 
-class toolsDialog : public QDialog
+class ToolsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit toolsDialog(QWidget *parent = 0);
-    ~toolsDialog();
+    explicit ToolsDialog(QWidget *parent = 0);
+    ~ToolsDialog();
 
 private slots:
     void openBase();

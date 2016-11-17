@@ -1,7 +1,7 @@
 #include "toolsdialog.h"
 #include "ui_toolsdialog.h"
 
-toolsDialog::toolsDialog(QWidget *parent) :
+ToolsDialog::ToolsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::toolsDialog)
 {
@@ -9,12 +9,12 @@ toolsDialog::toolsDialog(QWidget *parent) :
     ui->checkBox_next->setVisible(false);
 }
 
-toolsDialog::~toolsDialog()
+ToolsDialog::~ToolsDialog()
 {
     delete ui;
 }
 
-void toolsDialog::openBase(){
+void ToolsDialog::openBase(){
     QString nomFichier = QFileDialog::getExistingDirectory(0, "Répertoire de la base", QDir::homePath());
     if(nomFichier.isEmpty()){
         QMessageBox::critical(this, "Pas de fichier choisi", "<strong>ATTENTION:</strong> vous n'avez pas choisi de fichier de données.  <em>Interrogator</em> ne pourra pas fonctionner normalement!");
