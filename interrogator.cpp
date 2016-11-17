@@ -5,7 +5,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     insManager = new SettingsManager;
-    insDialog = new toolsDialog(this);
+    insDialog = new ToolsDialog(this);
     connect(insDialog, SIGNAL(baseUpdated()), insManager, SLOT(update()));
 
     //Vérification des settings
