@@ -31,3 +31,7 @@ FORMS    += interrogator.ui \
 
 RESOURCES += \
     images.qrc
+
+DISTFILES +=
+
+RC_ICONS = images/interrogator.ico

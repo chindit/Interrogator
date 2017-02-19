@@ -54,7 +54,7 @@ private:
     Ui::Interrogator *ui;
     Xml *insXml;
     SettingsManager *insManager;
-    toolsDialog *insDialog;
+    ToolsDialog *insDialog;
     bool edit;
     int idEdit;
     int idEditCateg;

@@ -524,7 +524,7 @@ void Interrogator::preparePDF(){
     }
 
     //Message de fin
-    QMessageBox::information(this, "Questionnaire généré", "Le questionnaire a été généré et se trouve dans ici:"+nomFichier);
+    QMessageBox::information(this, "Questionnaire généré", "Le questionnaire a été généré et se trouve ici:"+nomFichier);
     return;
 }
 
