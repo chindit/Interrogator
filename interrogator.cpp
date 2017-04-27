@@ -465,7 +465,7 @@ void Interrogator::preparePDF(){
         QList<QMultiMap<QString,QString> > oldQuestions = questions;
         questions.clear();
         for(int i=0; i<nbQuestions; i++){
-            int selected = std::rand()%oldQuestions.size();
+            int selected = rand()%oldQuestions.size();
             questions.append(oldQuestions.at(selected));
             oldQuestions.removeAt(selected);
         }
