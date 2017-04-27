@@ -49,7 +49,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="index">
        <widget class="QWidget" name="horizontalLayoutWidget">
@@ -1119,7 +1119,7 @@ réponse</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: #006;margin-bottom:6px;margin-top:-10px;</string>
+              <string notr="true">color: #006;margin-bottom:6px;margin-top:0px;</string>
              </property>
              <property name="text">
               <string>&lt;a href=&quot;0&quot;&gt;Accueil&lt;/a&gt;</string>
@@ -1546,7 +1546,7 @@ margin-left:-60px;</string>
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
