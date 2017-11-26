@@ -24,7 +24,7 @@ void Pdf::generate(QList<QMultiMap<QString,QString> > questions, QMultiMap<QStri
     if (!page.begin(&printer))
             return;
     QFont date("Arial", 10);
-    QFont titre("Times New Roman", 24, QFont::DemiBold);
+    QFont titre("Ubuntu", 24, QFont::DemiBold);
     QFont regular("Times New Roman", 12);
     QFont italique("Times New Roman", 12, QFont::StyleItalic);
     QFont large("Times New Roman", 16);

@@ -2,8 +2,8 @@
 #include "ui_interrogator.h"
 
 Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::Interrogator){
-    ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(0);
+    this->buildUI();
+
     insManager = new SettingsManager;
     insDialog = new ToolsDialog(this);
     connect(insDialog, SIGNAL(baseUpdated()), insManager, SLOT(update()));
@@ -24,7 +24,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     //----------------------------------------------
     //0 - Accueil
     //----------------------------------------------
-    connect(ui->pushButton_category, SIGNAL(clicked()), mappeur[0], SLOT(map()));
+    /*connect(ui->pushButton_category, SIGNAL(clicked()), mappeur[0], SLOT(map()));
     mappeur[0]->setMapping(ui->pushButton_category, 1);
     connect(ui->pushButton_add_category, SIGNAL(clicked()), mappeur[1], SLOT(map()));
     mappeur[1]->setMapping(ui->pushButton_add_category, 2);
@@ -35,7 +35,7 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
     connect(ui->pushButton_interro, SIGNAL(clicked()), mappeur[4], SLOT(map()));
     mappeur[4]->setMapping(ui->pushButton_interro, 5);
     for(int i=0;i<5;i++)
-        connect(mappeur[i], SIGNAL(mapped(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));
+        connect(mappeur[i], SIGNAL(mapped(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));*/
     //----------------------------------------------
     //0 - Menu
     //----------------------------------------------
@@ -104,6 +104,40 @@ Interrogator::~Interrogator()
     delete ui;
     delete insXml;
     delete insDialog;
+}
+
+void Interrogator::buildUI(){
+    ui->setupUi(this);
+    ui->stackedWidget->setCurrentIndex(0);
+
+    QSignalMapper *mapper[2];
+    for(int i=0; i<2; i++)
+        mapper[i] = new QSignalMapper;
+
+    //----------------------------------------------
+    //0 - Home
+    //----------------------------------------------
+    connect(ui->pushButtonBinder, SIGNAL(clicked()), mapper[0], SLOT(map()));
+    mapper[0]->setMapping(ui->pushButtonBinder, 1);
+
+    //----------------------------------------------
+    //1 - Binder
+    //----------------------------------------------
+    connect(ui->pushButtonBinderHome, SIGNAL(clicked()), mapper[1], SLOT(map()));
+    mapper[1]->setMapping(ui->pushButtonBinderHome, 0);
+
+    // Connect mappers to QStackedWidget
+    for(int i=0;i<2;i++)
+        connect(mapper[i], SIGNAL(mapped(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));
+
+    // Load binder
+    QFile file("input.txt");
+    file.open(QIODevice::ReadOnly);
+    BinderModel model(QString(file.readAll()), this);
+    file.close();
+    ui->treeViewBinders->setModel(&model);
+    ui->treeViewBinders->setWindowTitle(QObject::tr("Simple Tree Model"));
+    ui->treeViewBinders->show();
 }
 
 void Interrogator::setListCateg(){

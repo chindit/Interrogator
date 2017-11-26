@@ -14,13 +14,17 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        interrogator.cpp \
+    binderModel \
+    binderItem \
+    interrogator.cpp \
     xml.cpp \
     pdf.cpp \
     settingsmanager.cpp \
     toolsdialog.cpp
 
-HEADERS  += interrogator.h \
+HEADERS  += binderItem.h \
+    bindermodel.h \
+    interrogator.h \
     xml.h \
     pdf.h \
     settingsmanager.h \

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/icones">
-        <file>images/add.png</file>
         <file>images/add_category.png</file>
         <file>images/add_question.png</file>
         <file>images/category.png</file>
@@ -13,5 +12,13 @@
         <file>images/qt.jpg</file>
         <file>images/export.png</file>
         <file>images/open.png</file>
+        <file>images/add.png</file>
+        <file>images/home.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>images/create-document.png</file>
+        <file>images/binder.png</file>
+        <file>images/settings.png</file>
+        <file>images/storage.png</file>
     </qresource>
 </RCC>

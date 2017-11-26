@@ -10,6 +10,7 @@
 #include <QVector>
 #include <time.h>
 
+#include "bindermodel.h"
 #include "pdf.h"
 #include "settingsmanager.h"
 #include "toolsdialog.h"
@@ -48,6 +49,7 @@ private slots:
     void undoCateg();
 
 private:
+    void buildUI();
     void setListCateg();
     void updateListCateg();
 

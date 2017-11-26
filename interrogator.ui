@@ -45,269 +45,453 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_9">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>5</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="index">
-       <widget class="QWidget" name="horizontalLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>0</y>
-          <width>307</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label_titre_image">
-           <property name="maximumSize">
-            <size>
-             <width>75</width>
-             <height>75</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="images.qrc">:/icones/images/interrogator.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_ttre">
-           <property name="font">
-            <font>
-             <family>Ubuntu</family>
-             <pointsize>28</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="statusTip">
-            <string/>
-           </property>
-           <property name="text">
-            <string>Interrogator</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QPushButton" name="pushButton_interro">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>180</y>
-          <width>111</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="statusTip">
-         <string>Créer un questionnaire</string>
-        </property>
-        <property name="whatsThis">
-         <string>Créer un questionnaire</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="images.qrc">
-          <normaloff>:/icones/images/new_interrogation.png</normaloff>:/icones/images/new_interrogation.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>90</width>
-          <height>90</height>
-         </size>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_category">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>100</y>
-          <width>121</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="statusTip">
-         <string>Gérer les catégories</string>
-        </property>
-        <property name="whatsThis">
-         <string>Gérer les catégories</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="images.qrc">
-          <normaloff>:/icones/images/category.png</normaloff>:/icones/images/category.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>100</width>
-          <height>100</height>
-         </size>
-        </property>
-       </widget>
-       <widget class="Line" name="line">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>200</y>
-          <width>3</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_question">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>100</y>
-          <width>100</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="statusTip">
-         <string>Gérer les questions</string>
-        </property>
-        <property name="whatsThis">
-         <string>Gérer les questions</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="images.qrc">
-          <normaloff>:/icones/images/question.png</normaloff>:/icones/images/question.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>90</width>
-          <height>90</height>
-         </size>
-        </property>
-       </widget>
-       <widget class="Line" name="line_2">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>200</y>
-          <width>3</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_add_category">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>260</y>
-          <width>100</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="statusTip">
-         <string>Ajouter une catégorie</string>
-        </property>
-        <property name="whatsThis">
-         <string>Ajouter une catégorie</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="images.qrc">
-          <normaloff>:/icones/images/add_category.png</normaloff>:/icones/images/add_category.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>90</width>
-          <height>90</height>
-         </size>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_add_question_2">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>260</y>
-          <width>100</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="statusTip">
-         <string>Ajouter une question</string>
-        </property>
-        <property name="whatsThis">
-         <string>Ajouter une question</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="images.qrc">
-          <normaloff>:/icones/images/add_question.png</normaloff>:/icones/images/add_question.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>90</width>
-          <height>90</height>
-         </size>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="3" column="3">
+         <spacer name="bottomSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="4">
+         <spacer name="horizontalSpacer3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="2">
+         <spacer name="horizontalSpacer2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="0">
+         <spacer name="horizontalSpacer1">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="4" column="5">
+         <layout class="QHBoxLayout" name="statusButtons">
+          <item>
+           <spacer name="statusLeftSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonStatusStorage">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/images/storage.png</normaloff>:/images/storage.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonStatusSettings">
+            <property name="maximumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/images/settings.png</normaloff>:/images/settings.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1">
+         <layout class="QVBoxLayout" name="binderLayout">
+          <item>
+           <widget class="QLabel" name="labelBinder">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mes classeurs</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="binderButtonLayout">
+            <item>
+             <widget class="QPushButton" name="pushButtonBinder">
+              <property name="maximumSize">
+               <size>
+                <width>110</width>
+                <height>110</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/binder.png</normaloff>:/images/binder.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="5">
+         <layout class="QVBoxLayout" name="interrogationLayout">
+          <item>
+           <widget class="QLabel" name="labelInterrogation">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Nouvelle interrogation</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="interrogationButtonLayout">
+            <item>
+             <widget class="QPushButton" name="pushButtonInterrogation">
+              <property name="maximumSize">
+               <size>
+                <width>110</width>
+                <height>110</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/create-document.png</normaloff>:/images/create-document.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="3">
+         <layout class="QVBoxLayout" name="questionnaireLayout">
+          <item>
+           <widget class="QLabel" name="labelQuestionnaire">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mes questionnaires</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="questionnaireButtonLayout">
+            <item>
+             <widget class="QPushButton" name="pushButtonQuestionnaire">
+              <property name="maximumSize">
+               <size>
+                <width>110</width>
+                <height>110</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/icones/images/question.png</normaloff>:/icones/images/question.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="3">
+         <spacer name="topSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="6">
+         <spacer name="horizontalSpacer4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" colspan="7">
+         <layout class="QHBoxLayout" name="titleLayout">
+          <item>
+           <spacer name="leftTitleSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelMainIcon">
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>75</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="images.qrc">:/icones/images/interrogator.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelTitle">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>28</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Interrogator</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="rightTitleSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="binder">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="3" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayoutBinderAction">
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderDelete">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Supprimer</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/delete.png</normaloff>:/icones/images/delete.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderEdit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Éditer</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/edit.png</normaloff>:/icones/images/edit.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderAdd">
+            <property name="text">
+             <string>Nouveau</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/add.png</normaloff>:/icones/images/add.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="QTreeView" name="treeViewBinders"/>
+        </item>
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayoutBinderTitle">
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderHome">
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/home.png</normaloff>:/icones/images/home.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelBinderTitle">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mon classeur</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="category">
        <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -1546,7 +1730,7 @@ margin-left:-60px;</string>
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -1664,22 +1848,6 @@ margin-left:-60px;</string>
  </resources>
  <connections>
   <connection>
-   <sender>label_ariane</sender>
-   <signal>linkActivated(QString)</signal>
-   <receiver>Interrogator</receiver>
-   <slot>changeStacked(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>29</x>
-     <y>44</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>61</x>
-     <y>27</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>label_ariane_home</sender>
    <signal>linkActivated(QString)</signal>
    <receiver>Interrogator</receiver>
@@ -1692,6 +1860,22 @@ margin-left:-60px;</string>
     <hint type="destinationlabel">
      <x>5</x>
      <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Interrogator</receiver>
+   <slot>saveCateg()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>627</x>
+     <y>442</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>634</x>
+     <y>367</y>
     </hint>
    </hints>
   </connection>
@@ -1712,18 +1896,18 @@ margin-left:-60px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>label_home</sender>
+   <sender>label_ariane</sender>
    <signal>linkActivated(QString)</signal>
    <receiver>Interrogator</receiver>
    <slot>changeStacked(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>29</x>
-     <y>50</y>
+     <y>44</y>
     </hint>
     <hint type="destinationlabel">
-     <x>7</x>
-     <y>69</y>
+     <x>61</x>
+     <y>27</y>
     </hint>
    </hints>
   </connection>
@@ -1760,6 +1944,22 @@ margin-left:-60px;</string>
    </hints>
   </connection>
   <connection>
+   <sender>label_home</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>29</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>7</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>label_ariane_home_3</sender>
    <signal>linkActivated(QString)</signal>
    <receiver>Interrogator</receiver>
@@ -1772,22 +1972,6 @@ margin-left:-60px;</string>
     <hint type="destinationlabel">
      <x>8</x>
      <y>62</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Interrogator</receiver>
-   <slot>saveCateg()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>627</x>
-     <y>442</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>634</x>
-     <y>367</y>
     </hint>
    </hints>
   </connection>
@@ -1808,18 +1992,18 @@ margin-left:-60px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>tableWidget_categories</sender>
-   <signal>cellClicked(int,int)</signal>
+   <sender>pushButton_add_reponse_qcm</sender>
+   <signal>clicked()</signal>
    <receiver>Interrogator</receiver>
-   <slot>categoryActivated(int,int)</slot>
+   <slot>addQCMAnswer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>107</x>
-     <y>61</y>
+     <x>618</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>323</x>
-     <y>28</y>
+     <x>635</x>
+     <y>329</y>
     </hint>
    </hints>
   </connection>
@@ -1840,6 +2024,22 @@ margin-left:-60px;</string>
    </hints>
   </connection>
   <connection>
+   <sender>tableWidget_categories</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>categoryActivated(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>checkBox_qcm</sender>
    <signal>clicked()</signal>
    <receiver>Interrogator</receiver>
@@ -1856,22 +2056,6 @@ margin-left:-60px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_add_reponse_qcm</sender>
-   <signal>clicked()</signal>
-   <receiver>Interrogator</receiver>
-   <slot>addQCMAnswer()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>618</x>
-     <y>307</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>635</x>
-     <y>329</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_add_question</sender>
    <signal>clicked()</signal>
    <receiver>Interrogator</receiver>
@@ -1884,38 +2068,6 @@ margin-left:-60px;</string>
     <hint type="destinationlabel">
      <x>634</x>
      <y>423</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>comboBox_categories</sender>
-   <signal>currentIndexChanged(QString)</signal>
-   <receiver>label_actual_category</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>627</x>
-     <y>115</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>106</x>
-     <y>115</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_generate</sender>
-   <signal>clicked()</signal>
-   <receiver>Interrogator</receiver>
-   <slot>preparePDF()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>366</x>
-     <y>432</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>7</x>
-     <y>134</y>
     </hint>
    </hints>
   </connection>
@@ -1948,6 +2100,38 @@ margin-left:-60px;</string>
     <hint type="destinationlabel">
      <x>341</x>
      <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_categories</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>label_actual_category</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>627</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>106</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_generate</sender>
+   <signal>clicked()</signal>
+   <receiver>Interrogator</receiver>
+   <slot>preparePDF()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>7</x>
+     <y>134</y>
     </hint>
    </hints>
   </connection>
