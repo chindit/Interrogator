@@ -14,8 +14,8 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-    binderModel \
-    binderItem \
+    binderModel.cpp \
+    binderItem.cpp \
     interrogator.cpp \
     xml.cpp \
     pdf.cpp \
