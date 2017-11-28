@@ -4,7 +4,7 @@ BinderModel::BinderModel(const QString &data, QObject *parent)
     : QAbstractItemModel(parent)
 {
     QList<QVariant> rootData;
-    rootData << "Title" << "Summary";
+    rootData << tr("Titre") << tr("Description");
     rootItem = new BinderItem(rootData);
     setupModelData(data.split(QString("\n")), rootItem);
 }
@@ -147,4 +147,30 @@ void BinderModel::setupModelData(const QStringList &lines, BinderItem *parent)
 
         ++number;
     }
+}
+
+QString BinderModel::toString()
+{
+    QString output = QString();
+    int level = 0;
+    for (int i=0; i < this->rootItem->childCount(); i++) {
+        output.append(this->parseChild(this->rootItem->child(i), level));
+    }
+
+    return output;
+}
+
+QString BinderModel::parseChild(BinderItem *child, int level)
+{
+    QString result = QString();
+    if (child->childCount() > 0) {
+        for (int i=0; i < child->childCount(); i++) {
+            result.append(this->parseChild(child->child(i), level+1));
+        }
+    }
+
+    QString temp = QString();
+    temp.append(QString(' ').repeated(level*4)).append(child->data(0).toString()).append("\t").append(child->data(1).toString()).append("\n");
+
+    return result.prepend(temp);
 }

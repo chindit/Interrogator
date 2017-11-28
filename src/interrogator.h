@@ -10,7 +10,8 @@
 #include <QVector>
 #include <time.h>
 
-#include "bindermodel.h"
+#include "binder/bindermodel.h"
+#include "binder/bindereditiondialog.h"
 #include "pdf.h"
 #include "settingsmanager.h"
 #include "toolsdialog.h"
@@ -52,6 +53,9 @@ private:
     void buildUI();
     void setListCateg();
     void updateListCateg();
+
+    BinderModel *binderTree;
+    BinderEditionDialog *binderEditionDialog;
 
     Ui::Interrogator *ui;
     Xml *insXml;

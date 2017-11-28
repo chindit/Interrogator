@@ -101,6 +101,8 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
 
 Interrogator::~Interrogator()
 {
+    delete binderEditionDialog;
+    delete binderTree;
     delete ui;
     delete insXml;
     delete insDialog;
@@ -126,17 +128,27 @@ void Interrogator::buildUI(){
     connect(ui->pushButtonBinderHome, SIGNAL(clicked()), mapper[1], SLOT(map()));
     mapper[1]->setMapping(ui->pushButtonBinderHome, 0);
 
+    this->binderEditionDialog = new BinderEditionDialog(this);
+    connect(ui->pushButtonBinderAdd, SIGNAL(clicked()), this->binderEditionDialog, SLOT(show()));
+    // Connect binder
+    //conect(ui->treeViewBinders, SIGNAL(doubleClicked(QModelIndex)), )
+
     // Connect mappers to QStackedWidget
     for(int i=0;i<2;i++)
         connect(mapper[i], SIGNAL(mapped(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));
 
     // Load binder
-    QFile file("input.txt");
+    QFile file("/Users/david/Documents/Perso/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/input.txt");
     file.open(QIODevice::ReadOnly);
-    BinderModel model(QString(file.readAll()), this);
+    this->binderTree = new BinderModel(QString(file.readAll()), this);
     file.close();
-    ui->treeViewBinders->setModel(&model);
-    ui->treeViewBinders->setWindowTitle(QObject::tr("Simple Tree Model"));
+    QString essai = this->binderTree->toString();
+    QFile file2("/Users/david/Documents/Perso/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/output.txt");
+    file2.open(QIODevice::WriteOnly);
+    file2.write(essai.toLocal8Bit());
+    file2.close();
+    ui->treeViewBinders->setModel(this->binderTree);
+    ui->treeViewBinders->expandAll();
     ui->treeViewBinders->show();
 }
 

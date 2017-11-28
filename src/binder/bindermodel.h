@@ -24,9 +24,11 @@ public:
     QModelIndex parent(const QModelIndex &index) const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QString toString();
 
 private:
     void setupModelData(const QStringList &lines, BinderItem *parent);
+    QString parseChild(BinderItem *child, int level);
 
     BinderItem *rootItem;
 };

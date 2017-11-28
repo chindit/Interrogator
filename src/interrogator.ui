@@ -1,0 +1,2150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Interrogator</class>
+ <widget class="QMainWindow" name="Interrogator">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Interrogator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/icones/images/interrogator.png</normaloff>:/icones/images/interrogator.png</iconset>
+  </property>
+  <property name="statusTip">
+   <string>Bienvenue sur Interrogator!</string>
+  </property>
+  <property name="locale">
+   <locale language="French" country="Belgium"/>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="index">
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="3" column="3">
+         <spacer name="bottomSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="4">
+         <spacer name="horizontalSpacer3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="2">
+         <spacer name="horizontalSpacer2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="0">
+         <spacer name="horizontalSpacer1">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="4" column="5">
+         <layout class="QHBoxLayout" name="statusButtons">
+          <item>
+           <spacer name="statusLeftSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonStatusStorage">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/images/storage.png</normaloff>:/images/storage.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonStatusSettings">
+            <property name="maximumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/images/settings.png</normaloff>:/images/settings.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1">
+         <layout class="QVBoxLayout" name="binderLayout">
+          <item>
+           <widget class="QLabel" name="labelBinder">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mes classeurs</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="binderButtonLayout">
+            <item>
+             <widget class="QPushButton" name="pushButtonBinder">
+              <property name="maximumSize">
+               <size>
+                <width>110</width>
+                <height>110</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/binder.png</normaloff>:/images/binder.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="5">
+         <layout class="QVBoxLayout" name="interrogationLayout">
+          <item>
+           <widget class="QLabel" name="labelInterrogation">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Nouvelle interrogation</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="interrogationButtonLayout">
+            <item>
+             <widget class="QPushButton" name="pushButtonInterrogation">
+              <property name="maximumSize">
+               <size>
+                <width>110</width>
+                <height>110</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/create-document.png</normaloff>:/images/create-document.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="3">
+         <layout class="QVBoxLayout" name="questionnaireLayout">
+          <item>
+           <widget class="QLabel" name="labelQuestionnaire">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mes questionnaires</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="questionnaireButtonLayout">
+            <item>
+             <widget class="QPushButton" name="pushButtonQuestionnaire">
+              <property name="maximumSize">
+               <size>
+                <width>110</width>
+                <height>110</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/icones/images/question.png</normaloff>:/icones/images/question.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="3">
+         <spacer name="topSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="6">
+         <spacer name="horizontalSpacer4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" colspan="7">
+         <layout class="QHBoxLayout" name="titleLayout">
+          <item>
+           <spacer name="leftTitleSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelMainIcon">
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>75</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="images.qrc">:/icones/images/interrogator.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelTitle">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>28</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Interrogator</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="rightTitleSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="binder">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="3" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayoutBinderAction">
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderDelete">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Supprimer</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/delete.png</normaloff>:/icones/images/delete.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderEdit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Éditer</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/edit.png</normaloff>:/icones/images/edit.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderAdd">
+            <property name="text">
+             <string>Nouveau</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/add.png</normaloff>:/icones/images/add.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="QTreeView" name="treeViewBinders"/>
+        </item>
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayoutBinderTitle">
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderHome">
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/home.png</normaloff>:/icones/images/home.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelBinderTitle">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mon classeur</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="category">
+       <widget class="QWidget" name="verticalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>-2</y>
+          <width>621</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_ariane">
+           <property name="font">
+            <font>
+             <family>Courier New</family>
+             <pointsize>9</pointsize>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:#006; margin-top:-2px;margin-bottom:6px;</string>
+           </property>
+           <property name="text">
+            <string>&lt;a href=&quot;0&quot;&gt;Accueil&lt;/a&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_titre">
+           <property name="font">
+            <font>
+             <family>Ubuntu</family>
+             <pointsize>24</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">margin-top:-6px;</string>
+           </property>
+           <property name="text">
+            <string>Gérer les catégories</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidget_categories"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_add_category_2">
+             <property name="text">
+              <string>Ajouter une catégorie</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/icones/images/add.png</normaloff>:/icones/images/add.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="add_category">
+       <widget class="QWidget" name="verticalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>621</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_ariane">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_ariane_home">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #006; margin-top:-6px;</string>
+             </property>
+             <property name="text">
+              <string>&lt;a href=&quot;0&quot;&gt;Accueil&lt;/a&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_ariane_separator">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">margin-top:-6px;</string>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_ariane_category">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #006;margin-top:-6px;</string>
+             </property>
+             <property name="text">
+              <string>&lt;a href=&quot;1&quot;&gt;Gestion des catégories&lt;/a&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_titre_add_category">
+           <property name="font">
+            <font>
+             <family>Ubuntu</family>
+             <pointsize>24</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">margin-top:-6px;</string>
+           </property>
+           <property name="text">
+            <string>Ajouter une catégorie</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_add_category">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_nom">
+             <property name="text">
+              <string>Intitulé de la catégorie </string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEdit_nom"/>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QPlainTextEdit" name="plainTextEdit_description"/>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QLabel" name="label_description">
+             <property name="text">
+              <string>Description</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_cancel_2">
+             <property name="text">
+              <string>Annuler</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>Ajouter</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/icones/images/add.png</normaloff>:/icones/images/add.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="questions">
+       <widget class="QWidget" name="verticalLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>621</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_questions_ariane">
+           <item>
+            <widget class="QLabel" name="label_home">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:#006; margin-bottom:6px;</string>
+             </property>
+             <property name="text">
+              <string>&lt;a href=&quot;0&quot;&gt;Accueil&lt;/a&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_titre_list_questions">
+           <property name="font">
+            <font>
+             <family>Ubuntu</family>
+             <pointsize>24</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">margin-top:-6px;</string>
+           </property>
+           <property name="text">
+            <string>Gérer les questions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Catégorie</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_categorie"/>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidget_questions"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_add_question_3">
+             <property name="text">
+              <string>Ajouter une question</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/icones/images/add.png</normaloff>:/icones/images/add.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="add_question">
+       <widget class="QWidget" name="verticalLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>621</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="label_ariane_home_2">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #006;margin-top:-6px;</string>
+             </property>
+             <property name="text">
+              <string>&lt;a href=&quot;0&quot;&gt;Accueil&lt;/a&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_ariane_separator_2">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">margin-top:-6px;</string>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_ariane_question">
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #006;margin-top:-6px;</string>
+             </property>
+             <property name="text">
+              <string>&lt;a href=&quot;3&quot;&gt;Questions&lt;/a&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_titre_2">
+           <property name="font">
+            <font>
+             <family>Ubuntu</family>
+             <pointsize>24</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">margin-top:-6px;</string>
+           </property>
+           <property name="text">
+            <string>Ajouter une question</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_text_category">
+             <property name="text">
+              <string>Catégorie : </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_actual_category">
+             <property name="font">
+              <font>
+               <italic>true</italic>
+              </font>
+             </property>
+             <property name="text">
+              <string>CATEG</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_change_category">
+             <property name="text">
+              <string>Changer la catégorie</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_categories"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_intitule">
+             <property name="text">
+              <string>Intitulé de la question</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_qcm">
+             <property name="layoutDirection">
+              <enum>Qt::RightToLeft</enum>
+             </property>
+             <property name="text">
+              <string>QCM</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="plainTextEdit_intitule">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>75</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_reponse">
+           <property name="toolTip">
+            <string>S'il s'agit d'un QCM, pensez à cocher la/les réponse(s) correcte(s)</string>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Réponse(s)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QStackedWidget" name="stackedWidget_qcm">
+           <property name="currentIndex">
+            <number>1</number>
+           </property>
+           <widget class="QWidget" name="page">
+            <widget class="QWidget" name="verticalLayoutWidget_6">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>621</width>
+               <height>141</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Nombre de lignes pour la réponse</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_lignes_reponse">
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_14">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Ponctuation</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_ponctuation"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="textEdit_reponse"/>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="page_2">
+            <widget class="QWidget" name="horizontalLayoutWidget_3">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>611</width>
+               <height>141</height>
+              </rect>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QListWidget" name="listWidget_qcm"/>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <spacer name="verticalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_add_reponse_qcm">
+                  <property name="styleSheet">
+                   <string notr="true">margin-right:5px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Ajouter une
+réponse</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="Line" name="line_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Ponctuation</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_ponctuation_qcm">
+                  <property name="value">
+                   <number>1</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_qcm_2">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_cancel">
+             <property name="text">
+              <string>Annuler</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_add_question">
+             <property name="text">
+              <string>Valider</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>images/add.png</normaloff>images/add.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="create_interro">
+       <widget class="QWidget" name="verticalLayoutWidget_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>621</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <property name="spacing">
+          <number>1</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_ariane_home_3">
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Courier New</family>
+               <pointsize>9</pointsize>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #006;margin-bottom:6px;margin-top:0px;</string>
+             </property>
+             <property name="text">
+              <string>&lt;a href=&quot;0&quot;&gt;Accueil&lt;/a&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_titre_3">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">margin-top:-11px;
+margin-left:-60px;</string>
+             </property>
+             <property name="text">
+              <string>Générer un questionnaire</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_categories">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Catégorie</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_categories_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Line" name="line_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_nb_questions">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>35</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Nombre de questions</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox_nb_questions">
+             <property name="maximumSize">
+              <size>
+               <width>56</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_15">
+           <property name="topMargin">
+            <number>8</number>
+           </property>
+           <item alignment="Qt::AlignLeft|Qt::AlignTop">
+            <widget class="QGroupBox" name="groupBox">
+             <property name="minimumSize">
+              <size>
+               <width>215</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>Titre de l'interro</string>
+             </property>
+             <widget class="QWidget" name="verticalLayoutWidget_7">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>211</width>
+                <height>127</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <widget class="QRadioButton" name="radioButton_title">
+                 <property name="text">
+                  <string>Titre de la catégorie</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_description">
+                 <property name="text">
+                  <string>Description de la catégorie</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_titre_description">
+                 <property name="text">
+                  <string>Titre et description</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_perso">
+                 <property name="text">
+                  <string>Titre personnalisé</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_titre_interro"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignTop">
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>125</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>Date</string>
+             </property>
+             <widget class="QWidget" name="verticalLayoutWidget_8">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>191</width>
+                <height>103</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <item>
+                <widget class="QRadioButton" name="radioButton_date">
+                 <property name="text">
+                  <string>Date du jour</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_no_date">
+                 <property name="text">
+                  <string>Pas de date</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_date_perso">
+                 <property name="text">
+                  <string>Date personnalisée</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDateEdit" name="dateEdit"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string>Impression</string>
+             </property>
+             <widget class="QWidget" name="verticalLayoutWidget_9">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>181</width>
+                <height>101</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_10">
+               <item>
+                <widget class="QRadioButton" name="radioButton_pdf">
+                 <property name="text">
+                  <string>Imprimer dans un PDF</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_print">
+                 <property name="text">
+                  <string>Imprimer normalement</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="Line" name="line_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_4">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>90</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Options diverses</string>
+           </property>
+           <widget class="QWidget" name="gridLayoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>19</y>
+              <width>621</width>
+              <height>80</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="1" column="0">
+              <widget class="QCheckBox" name="checkBox_lignes_reponses">
+               <property name="text">
+                <string>Afficher des lignes pour les réponses</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QCheckBox" name="checkBox_prof">
+               <property name="toolTip">
+                <string>Créer également une version contenant les réponses</string>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>Version prof</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QCheckBox" name="checkBox_notes">
+               <property name="statusTip">
+                <string>Ne fonctionne que si TOUTES les question ont une note prédéfinie</string>
+               </property>
+               <property name="text">
+                <string>Afficher la note de la question</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" rowspan="3">
+              <widget class="QGroupBox" name="groupBox_type_questions">
+               <property name="title">
+                <string>Type de questions</string>
+               </property>
+               <widget class="QWidget" name="gridLayoutWidget_2">
+                <property name="geometry">
+                 <rect>
+                  <x>-1</x>
+                  <y>20</y>
+                  <width>301</width>
+                  <height>51</height>
+                 </rect>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_2">
+                 <item row="1" column="0">
+                  <widget class="QRadioButton" name="radioButton_pdf_texte">
+                   <property name="text">
+                    <string>Seulement texte</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QRadioButton" name="radioButton_pdf_qcm">
+                   <property name="text">
+                    <string>Seulement QCM</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" rowspan="2">
+                  <widget class="QRadioButton" name="radioButton_pdf_ambos">
+                   <property name="text">
+                    <string>Les deux!</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item>
+            <spacer name="horizontalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_generate">
+             <property name="text">
+              <string>Générer</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/icones/images/pdf.png</normaloff>:/icones/images/pdf.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionOuvrir_une_base"/>
+    <addaction name="actionSauvegarder_les_donn_es"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuAide">
+    <property name="title">
+     <string>Aide</string>
+    </property>
+    <addaction name="action_propos_d_Interrogator"/>
+    <addaction name="action_propos_de_Qt"/>
+   </widget>
+   <widget class="QMenu" name="menuOutils">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionEmptyAnswers"/>
+    <addaction name="actionFullSecurity"/>
+    <addaction name="actionEmptyQuestions"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuOutils"/>
+   <addaction name="menuAide"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuitter">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/icones/images/delete.png</normaloff>:/icones/images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="statusTip">
+    <string>Quitter le programme</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_propos_d_Interrogator">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/icones/images/interrogator.png</normaloff>:/icones/images/interrogator.png</iconset>
+   </property>
+   <property name="text">
+    <string>À propos d'Interrogator</string>
+   </property>
+  </action>
+  <action name="action_propos_de_Qt">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/icones/images/qt.jpg</normaloff>:/icones/images/qt.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>À propos de Qt</string>
+   </property>
+  </action>
+  <action name="actionSauvegarder_les_donn_es">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/icones/images/export.png</normaloff>:/icones/images/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sauvegarder les données</string>
+   </property>
+  </action>
+  <action name="actionOuvrir_une_base">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/icones/images/open.png</normaloff>:/icones/images/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Ouvrir une base</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionEmptyAnswers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Autoriser les réponses vides</string>
+   </property>
+  </action>
+  <action name="actionFullSecurity">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Activer le mode de sécurité maximale</string>
+   </property>
+   <property name="whatsThis">
+    <string>Sauvegarde automatiquement la base pour éviter des pertes de données</string>
+   </property>
+  </action>
+  <action name="actionEmptyQuestions">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Autoriser les questions vides (QCM)</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>label_ariane_home</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>44</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Interrogator</receiver>
+   <slot>saveCateg()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>627</x>
+     <y>442</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>634</x>
+     <y>367</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>label_ariane_category</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>181</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>109</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>label_ariane</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>29</x>
+     <y>44</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>27</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>label_ariane_home_2</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>636</x>
+     <y>43</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>label_ariane_question</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>label_home</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>29</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>7</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>label_ariane_home_3</sender>
+   <signal>linkActivated(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>changeStacked(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>8</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_categorie</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>updateList()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_add_reponse_qcm</sender>
+   <signal>clicked()</signal>
+   <receiver>Interrogator</receiver>
+   <slot>addQCMAnswer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>618</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidget_questions</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>categoryActivatedQuestion(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>634</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidget_categories</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>Interrogator</receiver>
+   <slot>categoryActivated(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_qcm</sender>
+   <signal>clicked()</signal>
+   <receiver>Interrogator</receiver>
+   <slot>setQCMStatus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>627</x>
+     <y>141</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_add_question</sender>
+   <signal>clicked()</signal>
+   <receiver>Interrogator</receiver>
+   <slot>saveQuestion()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>585</x>
+     <y>425</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>634</x>
+     <y>423</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_perso</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEdit_titre_interro</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_date_perso</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dateEdit</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_categories</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>label_actual_category</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>627</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>106</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_generate</sender>
+   <signal>clicked()</signal>
+   <receiver>Interrogator</receiver>
+   <slot>preparePDF()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>7</x>
+     <y>134</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>changeStacked(QString)</slot>
+  <slot>saveCateg()</slot>
+  <slot>updateList()</slot>
+  <slot>categoryActivated(int,int)</slot>
+  <slot>categoryActivatedQuestion(int,int)</slot>
+  <slot>setQCMStatus()</slot>
+  <slot>addQCMAnswer()</slot>
+  <slot>saveQuestion()</slot>
+  <slot>preparePDF()</slot>
+ </slots>
+</ui>
