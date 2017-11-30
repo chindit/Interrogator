@@ -35,3 +35,8 @@ void BinderEditionDialog::clearData()
     ui->plainTextEditDescription->clear();
     this->binderId = 0;
 }
+
+void BinderEditionDialog::setTitleHierarchy(QStringList hierarchy)
+{
+    ui->comboBoxParent->addItems(hierarchy);
+}

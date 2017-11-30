@@ -143,10 +143,19 @@ void BinderModel::setupModelData(const QStringList &lines, BinderItem *parent)
 
             // Append a new item to the current parent's list of children.
             parents.last()->appendChild(new BinderItem(columnData, parents.last()));
+            QString spacer = QString();
+            spacer = spacer.append('-').repeated((position)/4);
+            spacer = spacer.append('>').append(columnStrings[0]);
+            this->titleHierarchy << spacer;
         }
 
         ++number;
     }
+}
+
+QStringList BinderModel::getTitleHierarchy()
+{
+    return this->titleHierarchy;
 }
 
 QString BinderModel::toString()

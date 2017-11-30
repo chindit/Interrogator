@@ -141,6 +141,7 @@ void Interrogator::buildUI(){
     QFile file("/Users/david/Documents/Perso/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/input.txt");
     file.open(QIODevice::ReadOnly);
     this->binderTree = new BinderModel(QString(file.readAll()), this);
+    this->binderEditionDialog->setTitleHierarchy(this->binderTree->getTitleHierarchy());
     file.close();
     QString essai = this->binderTree->toString();
     QFile file2("/Users/david/Documents/Perso/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/output.txt");

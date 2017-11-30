@@ -19,6 +19,7 @@ signals:
 public:
     explicit BinderEditionDialog(QWidget *parent = 0);
     ~BinderEditionDialog();
+    void setTitleHierarchy(QStringList hierarchy);
 
 public slots:
     void accept();
