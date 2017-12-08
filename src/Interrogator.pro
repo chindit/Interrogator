@@ -46,4 +46,4 @@ RESOURCES += \
 
 DISTFILES +=
 
-RC_ICONS = images/interrogator.ico
+RC_ICONS = ../images/interrogator.ico

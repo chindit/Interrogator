@@ -43,7 +43,7 @@ void BinderTreeWidget::saveXML()
     }
 
     QFile doc_xml;
-    doc_xml.setFileName("/Users/david/Documents/Perso/Interrogator/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/"+BINDER_SAVE_FILE);
+    doc_xml.setFileName(QString("/Users/david/Documents/Perso/Interrogator/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/").append(BINDER_SAVE_FILE));
     doc_xml.open(QIODevice::WriteOnly);
     QTextStream sortie;
     sortie.setDevice(&doc_xml);
@@ -83,20 +83,22 @@ QDomElement BinderTreeWidget::parseItem(QTreeWidgetItem *item, QDomDocument root
 QDomDocument BinderTreeWidget::readXML()
 {
     QDomDocument binderDocument;
-    QFile file("/Users/david/Documents/Perso/Interrogator/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/"+BINDER_SAVE_FILE);
+    QFile file(QString("/Users/david/Documents/Perso/Interrogator/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/").append(BINDER_SAVE_FILE));
     if (!file.open(QIODevice::ReadOnly))
-        return;
+        return QDomDocument();
     if (!binderDocument.setContent(&file)){
         file.close();
-        return;
+        return QDomDocument();
     }
     file.close();
 
-    QDomElement racine = doc.documentElement();
+    QDomElement racine = binderDocument.documentElement();
     QDomNode noeud = racine.firstChild();
 
     while (!noeud.isNull()) {
         QDomElement binder = noeud.toElement();
 
     }
+
+    return QDomDocument();
 }
