@@ -44,6 +44,14 @@ QVariant BinderItem::data(int column) const
     return itemData.value(column);
 }
 
+void BinderItem::setData(int column, QVariant data)
+{
+    if (itemData.size() <= column) {
+        return;
+    }
+    itemData[column] = data;
+}
+
 BinderItem *BinderItem::getParentItem()
 {
     return parentItem;

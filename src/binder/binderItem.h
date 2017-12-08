@@ -18,6 +18,7 @@ public:
     QVariant data(int column) const;
     int row() const;
     BinderItem *getParentItem();
+    void setData(int column, QVariant data);
 
 private:
     QList<BinderItem*> childItems;

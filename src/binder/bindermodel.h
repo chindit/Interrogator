@@ -26,6 +26,13 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QString toString();
     QStringList getTitleHierarchy();
+    BinderItem* getItem(QModelIndex &index);
+    void updateItemParent(BinderItem *item, QString previousParent, QString newParent);
+    Qt::DropActions supportedDropActions() const override;
+
+public slots:
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
+    bool canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const override;
 
 private:
     void setupModelData(const QStringList &lines, BinderItem *parent);

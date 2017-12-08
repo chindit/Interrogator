@@ -48,6 +48,9 @@ private slots:
     void setFullSecurity();
     void undoQuestion();
     void undoCateg();
+    void binderSelectionUpdated(QModelIndex selectedIndex);
+    void processBinderEdition(QMap<QString, QString> binder);
+    void editBinder();
 
 private:
     void buildUI();
@@ -56,6 +59,7 @@ private:
 
     BinderModel *binderTree;
     BinderEditionDialog *binderEditionDialog;
+    QModelIndex currentSelectedIndex;
 
     Ui::Interrogator *ui;
     Xml *insXml;

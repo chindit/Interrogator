@@ -4,6 +4,10 @@
 #include <QDialog>
 #include <QMap>
 #include <QMessageBox>
+#include <QModelIndex>
+
+#include "binder/bindermodel.h"
+#include "tools/constants.h"
 
 namespace Ui {
 class BinderEditionDialog;
@@ -20,6 +24,7 @@ public:
     explicit BinderEditionDialog(QWidget *parent = 0);
     ~BinderEditionDialog();
     void setTitleHierarchy(QStringList hierarchy);
+    void editBinder(QVariant title, QVariant text, QVariant parent);
 
 public slots:
     void accept();
@@ -28,7 +33,6 @@ private:
     void clearData();
 
     Ui::BinderEditionDialog *ui;
-    int binderId = 0;
 };
 
 #endif // BINDEREDITIONDIALOG_H

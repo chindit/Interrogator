@@ -102,12 +102,14 @@ Interrogator::Interrogator(QWidget *parent) : QMainWindow(parent), ui(new Ui::In
 Interrogator::~Interrogator()
 {
     delete binderEditionDialog;
-    delete binderTree;
     delete ui;
     delete insXml;
     delete insDialog;
 }
 
+/**
+ * @brief Interrogator::buildUI
+ */
 void Interrogator::buildUI(){
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
@@ -130,28 +132,69 @@ void Interrogator::buildUI(){
 
     this->binderEditionDialog = new BinderEditionDialog(this);
     connect(ui->pushButtonBinderAdd, SIGNAL(clicked()), this->binderEditionDialog, SLOT(show()));
-    // Connect binder
-    //conect(ui->treeViewBinders, SIGNAL(doubleClicked(QModelIndex)), )
 
     // Connect mappers to QStackedWidget
     for(int i=0;i<2;i++)
         connect(mapper[i], SIGNAL(mapped(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));
 
-    // Load binder
-    QFile file("/Users/david/Documents/Perso/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/input.txt");
-    file.open(QIODevice::ReadOnly);
-    this->binderTree = new BinderModel(QString(file.readAll()), this);
-    this->binderEditionDialog->setTitleHierarchy(this->binderTree->getTitleHierarchy());
-    file.close();
-    QString essai = this->binderTree->toString();
-    QFile file2("/Users/david/Documents/Perso/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/output.txt");
-    file2.open(QIODevice::WriteOnly);
-    file2.write(essai.toLocal8Bit());
-    file2.close();
-    ui->treeViewBinders->setModel(this->binderTree);
-    ui->treeViewBinders->expandAll();
-    ui->treeViewBinders->show();
+    // Labels will not be shown if they are set in widget
+    QStringList labels; labels << tr("Titre") << tr("Description");
+    ui->treeWidgetBinder->setHeaderLabels(labels);
+    ui->treeWidgetBinder->expandAll();
+    ui->treeWidgetBinder->resizeColumnToContents(0);
+    ui->treeWidgetBinder->show();
 }
+
+/**
+ * @brief Interrogator::binderSelectionUpdated
+ * @param selectedIndex
+ */
+void Interrogator::binderSelectionUpdated(QModelIndex selectedIndex)
+{
+    this->currentSelectedIndex = selectedIndex;
+    ui->pushButtonBinderDelete->setEnabled(true);
+    ui->pushButtonBinderEdit->setEnabled(true);
+}
+
+/**
+ * @brief Interrogator::editBinder
+ */
+void Interrogator::editBinder()
+{
+    if (!ui->pushButtonBinderEdit->isEnabled() || !this->currentSelectedIndex.isValid()) {
+        return;
+    }
+    BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
+    QVariant parent = (item->getParentItem() == NULL) ? QVariant() : item->getParentItem()->data(0);
+    // TODO fix this with thanslations
+    if (parent.toString().compare("Titre") == 0) {
+        parent = QVariant('/');
+    }
+    this->binderEditionDialog->editBinder(item->data(0), item->data(1), parent);
+}
+
+/**
+ * @brief Interrogator::processBinderEdition
+ * @param binder
+ */
+void Interrogator::processBinderEdition(QMap<QString, QString> binder)
+{
+    if (!this->currentSelectedIndex.isValid()) {
+        // TODO
+        return;
+    }
+    // Edit current binder
+    BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
+    item->setData(0, binder.value("title"));
+    item->setData(1, binder.value("description"));
+
+    // TODO handle parent
+    this->binderTree->updateItemParent(item, (item->getParentItem() == NULL) ? QString() : item->getParentItem()->data(0).toString(), binder.value("parent"));
+
+    // TODO handle update
+}
+
+
 
 void Interrogator::setListCateg(){
     //Met la liste des catégories à jour

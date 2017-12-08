@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     settingsmanager.cpp \
     toolsdialog.cpp \
     binder/bindertools.cpp \
-    binder/bindereditiondialog.cpp
+    binder/bindereditiondialog.cpp \
+    bindertreewidget.cpp
 
 HEADERS  += binder/binderItem.h \
     binder/bindermodel.h \
@@ -32,7 +33,9 @@ HEADERS  += binder/binderItem.h \
     settingsmanager.h \
     toolsdialog.h \
     binder/bindertools.h \
-    binder/bindereditiondialog.h
+    binder/bindereditiondialog.h \
+    tools/constants.h \
+    bindertreewidget.h
 
 FORMS    += interrogator.ui \
     toolsdialog.ui \

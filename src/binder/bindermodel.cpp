@@ -35,12 +35,21 @@ QVariant BinderModel::data(const QModelIndex &index, int role) const
     return item->data(index.column());
 }
 
+BinderItem* BinderModel::getItem(QModelIndex &index)
+{
+    if (!index.isValid())
+        return NULL;
+
+    BinderItem *item = static_cast<BinderItem*>(index.internalPointer());
+    return item;
+}
+
 Qt::ItemFlags BinderModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return Qt::ItemIsDropEnabled;
 
-    return QAbstractItemModel::flags(index);
+    return Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | Qt::ItemIsEditable | QAbstractItemModel::flags(index);
 }
 
 QVariant BinderModel::headerData(int section, Qt::Orientation orientation,
@@ -182,4 +191,53 @@ QString BinderModel::parseChild(BinderItem *child, int level)
     temp.append(QString(' ').repeated(level*4)).append(child->data(0).toString()).append("\t").append(child->data(1).toString()).append("\n");
 
     return result.prepend(temp);
+}
+
+void BinderModel::updateItemParent(BinderItem *item, QString previousParent, QString newParent)
+{
+    if (previousParent == newParent) {
+        return;
+    }
+
+    // Find new parent item
+
+    //BinderItem *parent = this->findChild(newParent);
+    int t = 2;
+}
+
+Qt::DropActions BinderModel::supportedDropActions() const
+{
+    return Qt::MoveAction;
+}
+
+bool BinderModel::canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const
+{
+    int t = 2;
+    return true;
+}
+
+bool BinderModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent){
+
+    int t = 3;
+    if(!canDropMimeData(data, action, row, column, parent))
+            return false;
+
+    if (action == Qt::IgnoreAction)
+        return true;
+
+    int beginRow;
+
+    if (row != -1)
+        beginRow = row;
+    else if (parent.isValid())
+        beginRow = parent.row();
+    else
+        beginRow = rowCount(QModelIndex());
+
+    removeRow(row, parent);
+    insertRow(beginRow, parent);
+    setData(parent.child(beginRow, 0), data);
+
+    return true;
+
 }

@@ -400,52 +400,6 @@
       </widget>
       <widget class="QWidget" name="binder">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="3" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayoutBinderAction">
-          <item>
-           <widget class="QPushButton" name="pushButtonBinderDelete">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>Supprimer</string>
-            </property>
-            <property name="icon">
-             <iconset resource="images.qrc">
-              <normaloff>:/icones/images/delete.png</normaloff>:/icones/images/delete.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButtonBinderEdit">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>Éditer</string>
-            </property>
-            <property name="icon">
-             <iconset resource="images.qrc">
-              <normaloff>:/icones/images/edit.png</normaloff>:/icones/images/edit.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButtonBinderAdd">
-            <property name="text">
-             <string>Nouveau</string>
-            </property>
-            <property name="icon">
-             <iconset resource="images.qrc">
-              <normaloff>:/icones/images/add.png</normaloff>:/icones/images/add.png</iconset>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="2" column="0">
-         <widget class="QTreeView" name="treeViewBinders"/>
-        </item>
         <item row="1" column="0">
          <layout class="QHBoxLayout" name="horizontalLayoutBinderTitle">
           <item>
@@ -490,6 +444,58 @@
            </widget>
           </item>
          </layout>
+        </item>
+        <item row="3" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayoutBinderAction">
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderDelete">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Supprimer</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/delete.png</normaloff>:/icones/images/delete.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderEdit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Éditer</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/edit.png</normaloff>:/icones/images/edit.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonBinderAdd">
+            <property name="text">
+             <string>Nouveau</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images.qrc">
+              <normaloff>:/icones/images/add.png</normaloff>:/icones/images/add.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="BinderTreeWidget" name="treeWidgetBinder">
+          <column>
+           <property name="text">
+            <string notr="true">1</string>
+           </property>
+          </column>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1730,7 +1736,7 @@ margin-left:-60px;</string>
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -1843,6 +1849,13 @@ margin-left:-60px;</string>
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BinderTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>bindertreewidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="images.qrc"/>
  </resources>
