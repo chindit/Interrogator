@@ -143,6 +143,8 @@ void Interrogator::buildUI(){
     ui->treeWidgetBinder->expandAll();
     ui->treeWidgetBinder->resizeColumnToContents(0);
     ui->treeWidgetBinder->show();
+
+    ui->treeWidgetBinder->saveXML();
 }
 
 /**
