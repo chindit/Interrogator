@@ -445,7 +445,7 @@
           </item>
          </layout>
         </item>
-        <item row="3" column="0">
+        <item row="6" column="0">
          <layout class="QHBoxLayout" name="horizontalLayoutBinderAction">
           <item>
            <widget class="QPushButton" name="pushButtonBinderDelete">
@@ -496,6 +496,48 @@
            </property>
           </column>
          </widget>
+        </item>
+        <item row="4" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>16</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>14</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="images.qrc">:/images/info.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Les classeurs peuvent être hiérarchisés via un simple glisser-déposer</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -1439,7 +1481,7 @@ margin-left:-60px;</string>
                 <x>0</x>
                 <y>20</y>
                 <width>211</width>
-                <height>127</height>
+                <height>139</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -1498,7 +1540,7 @@ margin-left:-60px;</string>
                 <x>0</x>
                 <y>20</y>
                 <width>191</width>
-                <height>103</height>
+                <height>110</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1595,7 +1637,7 @@ margin-left:-60px;</string>
               <x>0</x>
               <y>19</y>
               <width>621</width>
-              <height>80</height>
+              <height>81</height>
              </rect>
             </property>
             <layout class="QGridLayout" name="gridLayout">
@@ -1646,7 +1688,7 @@ margin-left:-60px;</string>
                   <x>-1</x>
                   <y>20</y>
                   <width>301</width>
-                  <height>51</height>
+                  <height>53</height>
                  </rect>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_2">
@@ -1741,7 +1783,7 @@ margin-left:-60px;</string>
    </property>
    <widget class="QMenu" name="menuFichier">
     <property name="title">
-     <string>Fichier</string>
+     <string>Fichie&amp;r</string>
     </property>
     <addaction name="actionOuvrir_une_base"/>
     <addaction name="actionSauvegarder_les_donn_es"/>
@@ -1756,7 +1798,7 @@ margin-left:-60px;</string>
    </widget>
    <widget class="QMenu" name="menuOutils">
     <property name="title">
-     <string>Options</string>
+     <string>Optio&amp;ns</string>
     </property>
     <addaction name="actionEmptyAnswers"/>
     <addaction name="actionFullSecurity"/>
@@ -1773,7 +1815,7 @@ margin-left:-60px;</string>
      <normaloff>:/icones/images/delete.png</normaloff>:/icones/images/delete.png</iconset>
    </property>
    <property name="text">
-    <string>Quitter</string>
+    <string>&amp;Quitter</string>
    </property>
    <property name="statusTip">
     <string>Quitter le programme</string>
@@ -1788,7 +1830,7 @@ margin-left:-60px;</string>
      <normaloff>:/icones/images/interrogator.png</normaloff>:/icones/images/interrogator.png</iconset>
    </property>
    <property name="text">
-    <string>À propos d'Interrogator</string>
+    <string>&amp;À propos d'Interrogator</string>
    </property>
   </action>
   <action name="action_propos_de_Qt">
@@ -1797,7 +1839,7 @@ margin-left:-60px;</string>
      <normaloff>:/icones/images/qt.jpg</normaloff>:/icones/images/qt.jpg</iconset>
    </property>
    <property name="text">
-    <string>À propos de Qt</string>
+    <string>À &amp;propos de Qt</string>
    </property>
   </action>
   <action name="actionSauvegarder_les_donn_es">
@@ -1806,7 +1848,7 @@ margin-left:-60px;</string>
      <normaloff>:/icones/images/export.png</normaloff>:/icones/images/export.png</iconset>
    </property>
    <property name="text">
-    <string>Sauvegarder les données</string>
+    <string>&amp;Sauvegarder les données</string>
    </property>
   </action>
   <action name="actionOuvrir_une_base">
@@ -1815,7 +1857,7 @@ margin-left:-60px;</string>
      <normaloff>:/icones/images/open.png</normaloff>:/icones/images/open.png</iconset>
    </property>
    <property name="text">
-    <string>Ouvrir une base</string>
+    <string>&amp;Ouvrir une base</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -1826,7 +1868,7 @@ margin-left:-60px;</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Autoriser les réponses vides</string>
+    <string>&amp;Autoriser les réponses vides</string>
    </property>
   </action>
   <action name="actionFullSecurity">
@@ -1834,7 +1876,7 @@ margin-left:-60px;</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Activer le mode de sécurité maximale</string>
+    <string>Activer &amp;le mode de sécurité maximale</string>
    </property>
    <property name="whatsThis">
     <string>Sauvegarde automatiquement la base pour éviter des pertes de données</string>
@@ -1845,7 +1887,7 @@ margin-left:-60px;</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Autoriser les questions vides (QCM)</string>
+    <string>Autoriser les &amp;questions vides (QCM)</string>
    </property>
   </action>
  </widget>

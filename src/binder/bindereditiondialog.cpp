@@ -19,12 +19,8 @@ void BinderEditionDialog::accept()
         QMessageBox::warning(this, tr("Titre invalide"), tr("Le titre doit contenir au moins 5 caractères"));
         return;
     }
-    QMap<QString, QString> result = QMap<QString, QString>();
-    result.insert("title", ui->lineEditTitle->text());
-    result.insert("description", ui->plainTextEditDescription->toPlainText());
-    result.insert("parent", ui->comboBoxParent->currentText().right(ui->comboBoxParent->currentText().indexOf('>')));
 
-    emit editionFinished(result);
+    emit editionFinished(ui->lineEditTitle->text(), ui->plainTextEditDescription->toPlainText());
 
     this->clearData();
 
@@ -37,20 +33,11 @@ void BinderEditionDialog::clearData()
     ui->plainTextEditDescription->clear();
 }
 
-void BinderEditionDialog::setTitleHierarchy(QStringList hierarchy)
+void BinderEditionDialog::editBinder(QString title, QString text)
 {
-    hierarchy.prepend(EMPTY_MARKER);
-    ui->comboBoxParent->addItems(hierarchy);
-}
-
-void BinderEditionDialog::editBinder(QVariant title, QVariant text, QVariant parent)
-{
-    ui->lineEditTitle->setText(title.toString());
+    ui->lineEditTitle->setText(title);
     ui->plainTextEditDescription->clear();
-    ui->plainTextEditDescription->appendPlainText(text.toString());
-
-    int requestedIndex = ui->comboBoxParent->findText(parent.toString(), Qt::MatchContains);
-    ui->comboBoxParent->setCurrentIndex((requestedIndex > 0) ? requestedIndex : 0);
+    ui->plainTextEditDescription->appendPlainText(text);
 
     this->show();
 }

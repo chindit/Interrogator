@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QSignalMapper>
+#include <QTreeWidgetItem>
 #include <QVector>
 #include <time.h>
 
@@ -48,9 +49,10 @@ private slots:
     void setFullSecurity();
     void undoQuestion();
     void undoCateg();
-    void binderSelectionUpdated(QModelIndex selectedIndex);
-    void processBinderEdition(QMap<QString, QString> binder);
     void editBinder();
+    void finishBinderEdition(QString title, QString description);
+    void enableBinderButtons();
+
 
 private:
     void buildUI();
@@ -59,7 +61,7 @@ private:
 
     BinderModel *binderTree;
     BinderEditionDialog *binderEditionDialog;
-    QModelIndex currentSelectedIndex;
+    QTreeWidgetItem *currentSelectedItem;
 
     Ui::Interrogator *ui;
     Xml *insXml;

@@ -131,7 +131,10 @@ void Interrogator::buildUI(){
     mapper[1]->setMapping(ui->pushButtonBinderHome, 0);
 
     this->binderEditionDialog = new BinderEditionDialog(this);
-    connect(ui->pushButtonBinderAdd, SIGNAL(clicked()), this->binderEditionDialog, SLOT(show()));
+    connect(ui->pushButtonBinderAdd, SIGNAL(clicked()), this->ui->treeWidgetBinder, SLOT(addItem()));
+    connect(ui->pushButtonBinderEdit, SIGNAL(clicked()), this, SLOT(editBinder()));
+    connect(ui->treeWidgetBinder, SIGNAL(itemSelectionChanged()), this, SLOT(enableBinderButtons()));
+    connect(this->binderEditionDialog, SIGNAL(editionFinished(QString,QString)), this, SLOT(finishBinderEdition(QString,QString)));
 
     // Connect mappers to QStackedWidget
     for(int i=0;i<2;i++)
@@ -144,59 +147,28 @@ void Interrogator::buildUI(){
     ui->treeWidgetBinder->resizeColumnToContents(0);
     ui->treeWidgetBinder->show();
 
-    ui->treeWidgetBinder->saveXML();
-    ui->treeWidgetBinder->readXML();
+    //ui->treeWidgetBinder->saveXML();
+    //ui->treeWidgetBinder->readXML();
 }
 
-/**
- * @brief Interrogator::binderSelectionUpdated
- * @param selectedIndex
- */
-void Interrogator::binderSelectionUpdated(QModelIndex selectedIndex)
-{
-    this->currentSelectedIndex = selectedIndex;
-    ui->pushButtonBinderDelete->setEnabled(true);
-    ui->pushButtonBinderEdit->setEnabled(true);
-}
-
-/**
- * @brief Interrogator::editBinder
- */
 void Interrogator::editBinder()
 {
-    if (!ui->pushButtonBinderEdit->isEnabled() || !this->currentSelectedIndex.isValid()) {
-        return;
-    }
-    /*BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
-    QVariant parent = (item->getParentItem() == NULL) ? QVariant() : item->getParentItem()->data(0);
-    // TODO fix this with thanslations
-    if (parent.toString().compare("Titre") == 0) {
-        parent = QVariant('/');
-    }
-    this->binderEditionDialog->editBinder(item->data(0), item->data(1), parent);*/
+    this->currentSelectedItem = this->ui->treeWidgetBinder->currentItem();
+    this->binderEditionDialog->editBinder(this->currentSelectedItem->text(0), this->currentSelectedItem->text(1));
 }
 
-/**
- * @brief Interrogator::processBinderEdition
- * @param binder
- */
-void Interrogator::processBinderEdition(QMap<QString, QString> binder)
+void Interrogator::enableBinderButtons()
 {
-    if (!this->currentSelectedIndex.isValid()) {
-        // TODO
-        return;
-    }
-    // Edit current binder
-    /*BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
-    item->setData(0, binder.value("title"));
-    item->setData(1, binder.value("description"));
-
-    // TODO handle parent
-    this->binderTree->updateItemParent(item, (item->getParentItem() == NULL) ? QString() : item->getParentItem()->data(0).toString(), binder.value("parent"));*/
-
-    // TODO handle update
+    bool state = (this->ui->treeWidgetBinder->selectedItems().count() > 0);
+    ui->pushButtonBinderDelete->setEnabled(state);
+    ui->pushButtonBinderEdit->setEnabled(state);
 }
 
+void Interrogator::finishBinderEdition(QString title, QString description)
+{
+    this->currentSelectedItem->setText(0, title);
+    this->currentSelectedItem->setText(1, description);
+}
 
 
 void Interrogator::setListCateg(){

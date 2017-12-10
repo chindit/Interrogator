@@ -7,6 +7,7 @@
 #include <QDomDocument>
 #include <QDomElement>
 #include <QDomNodeList>
+#include <QUuid>
 
 #include <QFile>
 #include <QTextStream>
@@ -24,6 +25,7 @@ public:
 signals:
 
 public slots:
+    void addItem();
 
 private:
     void enableDragAndDrop();

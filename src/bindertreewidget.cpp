@@ -28,6 +28,20 @@ void BinderTreeWidget::enableDragAndDrop()
     this->setDragDropMode(QAbstractItemView::InternalMove);
 }
 
+void BinderTreeWidget::addItem()
+{
+    QTreeWidgetItem *newLine = new QTreeWidgetItem();
+    newLine->setText(0, tr("Nouveau classeur"));
+    QUuid uuid = QUuid();
+    newLine->setText(3, uuid.toString());
+
+    if (this->selectedItems().count() > 0) {
+        this->selectedItems().at(0)->addChild(newLine);
+    } else {
+        this->addTopLevelItem(newLine);
+    }
+}
+
 /**
  * TODO Move this in XMLHandler
  * @brief BinderTreeWidget::loadXML
@@ -54,6 +68,7 @@ void BinderTreeWidget::saveXML()
 QDomElement BinderTreeWidget::parseItem(QTreeWidgetItem *item, QDomDocument root)
 {
     QDomElement domItem = root.createElement("binder");
+    domItem.setAttribute("id", item->text(2));
 
     QDomElement domItemTitle = root.createElement("title");
     QDomText domItemTitleText = root.createTextNode(item->text(0));
@@ -85,10 +100,10 @@ void BinderTreeWidget::readXML()
     QDomDocument binderDocument;
     QFile file(QString("/tmp/").append(BINDER_SAVE_FILE));
     if (!file.open(QIODevice::ReadOnly))
-        return QDomDocument();
+        return;
     if (!binderDocument.setContent(&file)){
         file.close();
-        return QDomDocument();
+        return;
     }
     file.close();
 
@@ -109,6 +124,7 @@ void BinderTreeWidget::readXML()
 QTreeWidgetItem* BinderTreeWidget::createItem(QDomElement node)
 {
     QTreeWidgetItem *currentItem = new QTreeWidgetItem();
+    currentItem->setText(2, node.attribute("id"));
     QDomNodeList children = node.childNodes();
     int items = children.count();
     for (int i = 0; i < items; i++) {

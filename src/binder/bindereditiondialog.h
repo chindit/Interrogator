@@ -18,13 +18,12 @@ class BinderEditionDialog : public QDialog
     Q_OBJECT
 
 signals:
-    void editionFinished(QMap<QString, QString> binder);
+    void editionFinished(QString title, QString description);
 
 public:
     explicit BinderEditionDialog(QWidget *parent = 0);
     ~BinderEditionDialog();
-    void setTitleHierarchy(QStringList hierarchy);
-    void editBinder(QVariant title, QVariant text, QVariant parent);
+    void editBinder(QString title, QString text);
 
 public slots:
     void accept();

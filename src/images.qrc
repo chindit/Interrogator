@@ -20,5 +20,6 @@
         <file>../images/binder.png</file>
         <file>../images/settings.png</file>
         <file>../images/storage.png</file>
+        <file>../images/info.png</file>
     </qresource>
 </RCC>
