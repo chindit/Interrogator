@@ -145,6 +145,7 @@ void Interrogator::buildUI(){
     ui->treeWidgetBinder->show();
 
     ui->treeWidgetBinder->saveXML();
+    ui->treeWidgetBinder->readXML();
 }
 
 /**
@@ -166,13 +167,13 @@ void Interrogator::editBinder()
     if (!ui->pushButtonBinderEdit->isEnabled() || !this->currentSelectedIndex.isValid()) {
         return;
     }
-    BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
+    /*BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
     QVariant parent = (item->getParentItem() == NULL) ? QVariant() : item->getParentItem()->data(0);
     // TODO fix this with thanslations
     if (parent.toString().compare("Titre") == 0) {
         parent = QVariant('/');
     }
-    this->binderEditionDialog->editBinder(item->data(0), item->data(1), parent);
+    this->binderEditionDialog->editBinder(item->data(0), item->data(1), parent);*/
 }
 
 /**
@@ -186,12 +187,12 @@ void Interrogator::processBinderEdition(QMap<QString, QString> binder)
         return;
     }
     // Edit current binder
-    BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
+    /*BinderItem *item = this->binderTree->getItem(this->currentSelectedIndex);
     item->setData(0, binder.value("title"));
     item->setData(1, binder.value("description"));
 
     // TODO handle parent
-    this->binderTree->updateItemParent(item, (item->getParentItem() == NULL) ? QString() : item->getParentItem()->data(0).toString(), binder.value("parent"));
+    this->binderTree->updateItemParent(item, (item->getParentItem() == NULL) ? QString() : item->getParentItem()->data(0).toString(), binder.value("parent"));*/
 
     // TODO handle update
 }

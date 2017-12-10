@@ -14,8 +14,6 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-    binder/binderModel.cpp \
-    binder/binderItem.cpp \
     interrogator.cpp \
     xml.cpp \
     pdf.cpp \
@@ -25,9 +23,7 @@ SOURCES += main.cpp\
     binder/bindereditiondialog.cpp \
     bindertreewidget.cpp
 
-HEADERS  += binder/binderItem.h \
-    binder/bindermodel.h \
-    interrogator.h \
+HEADERS  += interrogator.h \
     xml.h \
     pdf.h \
     settingsmanager.h \

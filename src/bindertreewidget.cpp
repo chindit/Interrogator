@@ -43,7 +43,7 @@ void BinderTreeWidget::saveXML()
     }
 
     QFile doc_xml;
-    doc_xml.setFileName(QString("/Users/david/Documents/Perso/Interrogator/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/").append(BINDER_SAVE_FILE));
+    doc_xml.setFileName(QString("/tmp/").append(BINDER_SAVE_FILE));
     doc_xml.open(QIODevice::WriteOnly);
     QTextStream sortie;
     sortie.setDevice(&doc_xml);
@@ -80,10 +80,10 @@ QDomElement BinderTreeWidget::parseItem(QTreeWidgetItem *item, QDomDocument root
  * @brief BinderTreeWidget::readXML
  * @return
  */
-QDomDocument BinderTreeWidget::readXML()
+void BinderTreeWidget::readXML()
 {
     QDomDocument binderDocument;
-    QFile file(QString("/Users/david/Documents/Perso/Interrogator/build-Interrogator-Desktop_Qt_5_9_0_clang_64bit-Debug/").append(BINDER_SAVE_FILE));
+    QFile file(QString("/tmp/").append(BINDER_SAVE_FILE));
     if (!file.open(QIODevice::ReadOnly))
         return QDomDocument();
     if (!binderDocument.setContent(&file)){
@@ -93,12 +93,37 @@ QDomDocument BinderTreeWidget::readXML()
     file.close();
 
     QDomElement racine = binderDocument.documentElement();
-    QDomNode noeud = racine.firstChild();
 
-    while (!noeud.isNull()) {
-        QDomElement binder = noeud.toElement();
-
+    racine.childNodes();
+    QDomNodeList children = racine.childNodes();
+    int items = children.count();
+    for (int i = 0; i < items; i++) {
+        QDomNode noeud = children.at(i);
+        this->addTopLevelItem(this->createItem(noeud.toElement()));
+        noeud.nextSibling();
     }
 
-    return QDomDocument();
+    return;
+}
+
+QTreeWidgetItem* BinderTreeWidget::createItem(QDomElement node)
+{
+    QTreeWidgetItem *currentItem = new QTreeWidgetItem();
+    QDomNodeList children = node.childNodes();
+    int items = children.count();
+    for (int i = 0; i < items; i++) {
+        QDomNode subNode = children.at(i);
+        if (subNode.nodeName().compare("title") == 0) {
+            currentItem->setText(0, subNode.toElement().text());
+        } else if (subNode.nodeName().compare("description") == 0) {
+            currentItem->setText(1, subNode.toElement().text());
+        } else if (subNode.nodeName().compare("binder") == 0) {
+            currentItem->addChild(this->createItem(subNode.toElement()));
+        } else {
+            // ERROR
+            return currentItem;
+        }
+    }
+
+    return currentItem;
 }

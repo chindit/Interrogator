@@ -6,6 +6,7 @@
 
 #include <QDomDocument>
 #include <QDomElement>
+#include <QDomNodeList>
 
 #include <QFile>
 #include <QTextStream>
@@ -18,7 +19,7 @@ class BinderTreeWidget : public QTreeWidget
 public:
     explicit BinderTreeWidget(QWidget *parent = nullptr);
     void saveXML();
-    QDomDocument readXML();
+    void readXML();
 
 signals:
 
@@ -27,7 +28,7 @@ public slots:
 private:
     void enableDragAndDrop();
     QDomElement parseItem(QTreeWidgetItem *item, QDomDocument root);
-
+    QTreeWidgetItem* createItem(QDomElement node);
 };
 
 #endif // BINDERBUILDER_H
