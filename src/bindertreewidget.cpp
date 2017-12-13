@@ -45,6 +45,24 @@ void BinderTreeWidget::addItem()
     this->resizeColumnToContents(0);
 }
 
+void BinderTreeWidget::deleteSelectedBinder()
+{
+    if (this->currentItem()->childCount() > 0) {
+        int response = QMessageBox::question(this, tr("Enfants détectés"),
+                                             tr("Ce classeur contient des sous-classeurs.  "
+                                                "En cas de suppression, tous les sous-classeurs seront supprimés.\n"
+                                                "Continuer ?"),
+                                             QMessageBox::Yes | QMessageBox::No);
+        if (response != QMessageBox::Yes) {
+            return;
+        }
+    }
+
+    delete this->currentItem();
+
+    this->saveXML();
+}
+
 /**
  * @brief BinderTreeWidget::loadXML
  */
@@ -60,14 +78,6 @@ void BinderTreeWidget::saveXML()
 
     XMLHandler handler = XMLHandler();
     handler.saveXML(binderDocument, "/tmp/binder.xml");
-
-    /*QFile doc_xml;
-    doc_xml.setFileName(QString("/tmp/").append(BINDER_SAVE_FILE));
-    doc_xml.open(QIODevice::WriteOnly);
-    QTextStream sortie;
-    sortie.setDevice(&doc_xml);
-    binderDocument.save(sortie, 4);
-    doc_xml.close();*/
 }
 
 QDomElement BinderTreeWidget::parseItem(QTreeWidgetItem *item, QDomDocument root)
@@ -101,16 +111,6 @@ QDomElement BinderTreeWidget::parseItem(QTreeWidgetItem *item, QDomDocument root
  */
 void BinderTreeWidget::parseXML(QDomDocument binderDocument)
 {
-    /*QDomDocument binderDocument;
-    QFile file(QString("/tmp/").append(BINDER_SAVE_FILE));
-    if (!file.open(QIODevice::ReadOnly))
-        return;
-    if (!binderDocument.setContent(&file)){
-        file.close();
-        return;
-    }
-    file.close();*/
-
     QDomElement racine = binderDocument.documentElement();
 
     racine.childNodes();

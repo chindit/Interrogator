@@ -7,6 +7,7 @@
 #include <QDomDocument>
 #include <QDomElement>
 #include <QDomNodeList>
+#include <QMessageBox>
 #include <QUuid>
 
 #include "xmlhandler.h"
@@ -24,6 +25,7 @@ signals:
 
 public slots:
     void addItem();
+    void deleteSelectedBinder();
 
 private:
     void enableDragAndDrop();

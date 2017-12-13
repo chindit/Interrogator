@@ -133,6 +133,7 @@ void Interrogator::buildUI(){
     this->binderEditionDialog = new BinderEditionDialog(this);
     connect(ui->pushButtonBinderAdd, SIGNAL(clicked()), this->ui->treeWidgetBinder, SLOT(addItem()));
     connect(ui->pushButtonBinderEdit, SIGNAL(clicked()), this, SLOT(editBinder()));
+    connect(ui->pushButtonBinderDelete, SIGNAL(clicked()), this->ui->treeWidgetBinder, SLOT(deleteSelectedBinder()));
     connect(ui->treeWidgetBinder, SIGNAL(itemSelectionChanged()), this, SLOT(enableBinderButtons()));
     connect(this->binderEditionDialog, SIGNAL(editionFinished(QString,QString)), this, SLOT(finishBinderEdition(QString,QString)));
 
