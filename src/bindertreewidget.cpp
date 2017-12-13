@@ -6,7 +6,10 @@ BinderTreeWidget::BinderTreeWidget(QWidget *parent) : QTreeWidget()
 
     this->enableDragAndDrop();
 
-    QTreeWidgetItem *tIt = new QTreeWidgetItem();
+    XMLHandler handler = XMLHandler();
+    this->parseXML(handler.readXML("/tmp/binder.xml"));
+
+    /*QTreeWidgetItem *tIt = new QTreeWidgetItem();
     tIt->setText(0, "Hey! Parent");
     QTreeWidgetItem *tSec = new QTreeWidgetItem();
     tSec->setText(0, "Buh, second");
@@ -15,7 +18,7 @@ BinderTreeWidget::BinderTreeWidget(QWidget *parent) : QTreeWidget()
     tIt2->setText(0, "New Root");
     tIt2->setText(1, "Hey description!");
     this->addTopLevelItem(tIt);
-    this->addTopLevelItem(tIt2);
+    this->addTopLevelItem(tIt2);*/
 }
 
 void BinderTreeWidget::enableDragAndDrop()
@@ -31,19 +34,18 @@ void BinderTreeWidget::enableDragAndDrop()
 void BinderTreeWidget::addItem()
 {
     QTreeWidgetItem *newLine = new QTreeWidgetItem();
-    newLine->setText(0, tr("Nouveau classeur"));
-    QUuid uuid = QUuid();
-    newLine->setText(3, uuid.toString());
+    newLine->setText(0, "Nouveau classeur");
+    newLine->setText(2, QUuid::createUuid().toString());
 
     if (this->selectedItems().count() > 0) {
         this->selectedItems().at(0)->addChild(newLine);
     } else {
         this->addTopLevelItem(newLine);
     }
+    this->resizeColumnToContents(0);
 }
 
 /**
- * TODO Move this in XMLHandler
  * @brief BinderTreeWidget::loadXML
  */
 void BinderTreeWidget::saveXML()
@@ -56,13 +58,16 @@ void BinderTreeWidget::saveXML()
         binderWidget.appendChild(this->parseItem(this->topLevelItem(i), binderDocument));
     }
 
-    QFile doc_xml;
+    XMLHandler handler = XMLHandler();
+    handler.saveXML(binderDocument, "/tmp/binder.xml");
+
+    /*QFile doc_xml;
     doc_xml.setFileName(QString("/tmp/").append(BINDER_SAVE_FILE));
     doc_xml.open(QIODevice::WriteOnly);
     QTextStream sortie;
     sortie.setDevice(&doc_xml);
     binderDocument.save(sortie, 4);
-    doc_xml.close();
+    doc_xml.close();*/
 }
 
 QDomElement BinderTreeWidget::parseItem(QTreeWidgetItem *item, QDomDocument root)
@@ -91,13 +96,12 @@ QDomElement BinderTreeWidget::parseItem(QTreeWidgetItem *item, QDomDocument root
 }
 
 /**
- * TODO move in XMLHandler
  * @brief BinderTreeWidget::readXML
  * @return
  */
-void BinderTreeWidget::readXML()
+void BinderTreeWidget::parseXML(QDomDocument binderDocument)
 {
-    QDomDocument binderDocument;
+    /*QDomDocument binderDocument;
     QFile file(QString("/tmp/").append(BINDER_SAVE_FILE));
     if (!file.open(QIODevice::ReadOnly))
         return;
@@ -105,7 +109,7 @@ void BinderTreeWidget::readXML()
         file.close();
         return;
     }
-    file.close();
+    file.close();*/
 
     QDomElement racine = binderDocument.documentElement();
 

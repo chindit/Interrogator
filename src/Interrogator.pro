@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     toolsdialog.cpp \
     binder/bindertools.cpp \
     binder/bindereditiondialog.cpp \
-    bindertreewidget.cpp
+    bindertreewidget.cpp \
+    xmlhandler.cpp
 
 HEADERS  += interrogator.h \
     xml.h \
@@ -31,7 +32,8 @@ HEADERS  += interrogator.h \
     binder/bindertools.h \
     binder/bindereditiondialog.h \
     tools/constants.h \
-    bindertreewidget.h
+    bindertreewidget.h \
+    xmlhandler.h
 
 FORMS    += interrogator.ui \
     toolsdialog.ui \

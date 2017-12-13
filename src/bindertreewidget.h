@@ -9,9 +9,7 @@
 #include <QDomNodeList>
 #include <QUuid>
 
-#include <QFile>
-#include <QTextStream>
-
+#include "xmlhandler.h"
 #include "tools/constants.h"
 
 class BinderTreeWidget : public QTreeWidget
@@ -20,7 +18,7 @@ class BinderTreeWidget : public QTreeWidget
 public:
     explicit BinderTreeWidget(QWidget *parent = nullptr);
     void saveXML();
-    void readXML();
+    void parseXML(QDomDocument binderDocument);
 
 signals:
 

@@ -168,6 +168,7 @@ void Interrogator::finishBinderEdition(QString title, QString description)
 {
     this->currentSelectedItem->setText(0, title);
     this->currentSelectedItem->setText(1, description);
+    this->ui->treeWidgetBinder->saveXML();
 }
 
 
